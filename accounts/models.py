@@ -16,6 +16,7 @@ class CustomUser(AbstractBaseUser):
     last_name = models.CharField(max_length=30, blank=False)
     date_of_birth = models.DateField(blank=True, null=True)
     address = models.TextField(blank=True, null=True)
+    phone_no = models.IntegerField(blank=True, null=True)
 
     # account details 
     email = models.EmailField(unique=True)
