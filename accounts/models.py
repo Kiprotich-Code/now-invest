@@ -5,6 +5,12 @@ from .managers import CustomUserManager
 
 # Create your models here.
 class CustomUser(AbstractBaseUser):
+    ROLES = [
+        ('User', 'user'),
+        ('Staff', 'staff'),
+        ('Admin', 'admin'),
+    ]   
+
     # personal details 
     first_name = models.CharField(max_length=30, blank=False)
     last_name = models.CharField(max_length=30, blank=False)
@@ -17,6 +23,7 @@ class CustomUser(AbstractBaseUser):
     last_login = models.DateTimeField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    user_type = models.CharField(max_length=20, choices=ROLES, default='User')
 
     # auth 
     password_reset_token = models.CharField(max_length=100, blank=True, null=True)
