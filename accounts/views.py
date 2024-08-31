@@ -11,15 +11,15 @@ def signup_step1(request):
     if request.method == 'POST':
         form = PersonalInfoForm(request.POST)
         if form.is_valid():
-            # convert date of birth to string 
-            personal_info = form.cleaned_data
-            personal_info['date_of_birth'] = personal_info['date_of_birth'].strftime('%Y-%m-%d')
 
             # Save personal info in session
-            request.session['personal_info'] = form.cleaned_data
+            personal_info = form.cleaned_data
+            request.session['personal_info'] = personal_info
             return redirect('signup_step2')
+  
     else:
         form = PersonalInfoForm()
+
     return render(request, 'registration/signup_step1.html', {'form': form})
 
 # Step 2: Collect email and password, and create the user
@@ -36,14 +36,15 @@ def signup_step2(request):
             # Set the personal info from step 1
             user.first_name = personal_info['first_name']
             user.last_name = personal_info['last_name']
-            user.date_of_birth = datetime.strptime(personal_info['date_of_birth'], '%Y-%m-%d').date()
-            user.phone_number = personal_info['phone_number']
+            user.phone_no = personal_info['phone_no']
             user.address = personal_info['address']
             user.save()
 
             # Log in the user
             login(request, user)
-            return redirect('dashboard')  # Redirect to a dashboard or home page
+            messages.success(request, 'Account Created Successfully!')
+            return redirect('signin')  # Redirect to a dashboard or home page
+    
     else:
         form = AccountInfoForm()
     
@@ -81,7 +82,7 @@ def signin(request):
         'form': form
     }
         
-    return render(request, 'signin.html', context)
+    return render(request, 'registration/signin.html', context)
 
 
 def signout(request):
