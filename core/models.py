@@ -1,12 +1,15 @@
-from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
+from accounts.models import CustomUser
 
-# Account model (to hold user's funds)
+# Models 
 class Account(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='account')
     balance = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
     
+    # Automatically pull the account number from CustomUser
+    account_no = models.CharField(max_length=12, editable=False, unique=True)
+
     def deposit(self, amount):
         """Deposits money to the user's account"""
         self.balance += amount
@@ -20,7 +23,8 @@ class Account(models.Model):
         self.save()
 
     def __str__(self):
-        return f"Account of {self.user.username}, Balance: {self.balance}"
+        return f"Account of {self.user.email}, Account No: {self.account_no}, Balance: {self.balance}"
+
 
 # Transaction model (to log deposits and withdrawals)
 class Transaction(models.Model):

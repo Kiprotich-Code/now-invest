@@ -25,6 +25,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     user_type = models.CharField(max_length=20, choices=ROLES, default='User')
 
+    # account - field 
+    account_no = models.CharField(max_length=12, unique=True, editable=False)
+
+
     # auth 
     password_reset_token = models.CharField(max_length=100, blank=True, null=True)
     password_reset_expiry = models.DateTimeField(blank=True, null=True)
