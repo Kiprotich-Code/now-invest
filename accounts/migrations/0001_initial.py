@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
     ]
-
+    # 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 
     operations = [
         migrations.CreateModel(
             name='CustomUser',
