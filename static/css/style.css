@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+body,
+button {
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --offcanvas-width: 270px;
+  --topNavbarHeight: 56px;
+}
+
+.sidebar-nav {
+  width: var(--offcanvas-width);
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-link .right-icon {
+  display: inline-flex;
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+
+  main {
+    margin-left: var(--offcanvas-width);
+  }
+
+  /* this is to remove the backdrop */
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+
+  .sidebar-nav {
+    -webkit-transform: none;
+    transform: none;
+    visibility: visible !important;
+    height: calc(100% - var(--topNavbarHeight));
+    top: var(--topNavbarHeight);
+  }
+}
+
+/* ************* */
+/*     STEPPER  */
+/* ************ */
+
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  position: relative;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+  flex: 1;
+}
+
+.step .circle {
+  width: 40px;
+  height: 40px;
+  background-color: white; /* Default color */
+  border-radius: 50%;
+  border: 2px solid #f96332; /* Border color for the circle */
+  color: #f96332; /* Icon color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.step.completed .circle {
+  background-color: #f96332; /* Filled circle */
+  color: white; /* White icon when filled */
+}
+
+.step p {
+  margin-top: 10px;
+}
+
+/* Line between steps */
+.step::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  background-color: white; /* Default white line */
+  z-index: 0;
+}
+
+.step.completed::before {
+  background-color: #f96332; /* Filled line */
+}
+
+.step:first-child::before {
+  left: 50%;
+}
+
+.step:last-child::before {
+  right: 50%;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .stepper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .step::before {
+    display: none;
+  }
+
+  .step:not(:last-child) .circle {
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 90%;
+    left: 20%;
+    width: 2px;
+    height: 30px;
+    background-color: #f96332;
+    transform: translateX(-50%);
+  }
+}
