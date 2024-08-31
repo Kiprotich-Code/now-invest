@@ -51,38 +51,39 @@ def signup_step2(request):
     return render(request, 'registration/signup_step2.html', {'form': form})
 
 
-# def signin(request):
-#     if request.method == 'POST':
-#         form = LoginForm(request.POST)
-#         email = request.POST.get('email')
-#         password = request.POST.get('password')
-#         user = authenticate(request, email=email, password=password)
+def signin(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        user = authenticate(request, email=email, password=password)
 
-#         if user is not None:
-#             login(request, user)
+        if user is not None:
+            login(request, user)
                     
-#             # Redirect users based on role
-#             if user.user_type in ['User', 'user']:
-#                 return redirect('user_home')
+            # Redirect users based on role
+            if user.user_type in ['User', 'user']:
+                return redirect('user_home')
 
-#             elif user.user_type.lower() == 'admin':
-#                 return redirect('home')
+            elif user.user_type.lower() == 'admin':
+                return redirect('home')
             
-#             else:
-#                 messages.error('Couldn\'t determine your user type!')
-#                 return redirect('signin')
+            else:
+                messages.error('Could not determine your user type!')
+                return redirect('signin')
         
-#         else:
-#             messages.error(request, 'User Does Not Exist!')
-#             return redirect('signin')
+        else:
+            messages.error(request, 'User Does Not Exist!')
+            return redirect('signin')
 
-#     else:
-#         form = LoginForm()
-#     context = {
-#         'form': form
-#     }
+    else:
+        form = LoginForm()
         
-#     return render(request, 'registration/signin.html', context)
+    context = {
+            'form': form
+        }
+        
+    return render(request, 'registration/signin.html', context)
 
 
 def signout(request):

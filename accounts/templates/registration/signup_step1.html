@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container-fluid p-5">
     <div class="row border border-2 rounded">
-        <div class="col p-5 rounded d-flex flex-column justify-content-center bg-dark text-white lh-lg">
+        <div class="col col-12 col-lg-6 p-5 rounded d-flex flex-column justify-content-center bg-dark text-white lh-lg">
             <h1 class="my-3">Hello 👋</h1>
 
             <h3>Ready to start your success story ?</h3>
@@ -17,6 +17,12 @@
                 <div class="form-container">
                     <p class="small text-center fw-lighter">Learn.Invest.Earn.</p>
                     <h4 class="text-center mb-4">Welcome back!</h4>
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{message}}
+                        {% endfor %}
+                    {% endif %}
                     {% block form_data %}
                     <p>Step 1 of 2</p>
                     <form method="POST" action="{% url 'signup_step1' %}">

@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'core',
     'crispy_forms',
     'crispy_bootstrap5',
-    'django_flatpickr',
 ]
 
 MIDDLEWARE = [

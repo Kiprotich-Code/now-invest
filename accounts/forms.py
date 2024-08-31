@@ -2,7 +2,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import CustomUser
-from django_flatpickr.widgets import DatePickerInput
 
 # Step 1: Personal Information Form
 class PersonalInfoForm(forms.ModelForm):
@@ -43,7 +42,7 @@ class AccountInfoForm(UserCreationForm):
 
 class LoginForm(forms.Form):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder' :'Email', 'style': 'max-width: 600px;'}))
-    password1 = forms.CharField(
+    password = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
