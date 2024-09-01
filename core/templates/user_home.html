@@ -55,15 +55,21 @@
                     </a>
                     <ul id="settings" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
+                            <a href="{% url 'deposit' %}" class="sidebar-link">
                                 <i class="fas fa-sign-in-alt pe-2"></i>
                                 <span class="topic"> Deposit</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
+                            <a href="{% url 'withdraw' %}" class="sidebar-link">
                                 <i class="fas fa-user-plus pe-2"></i>
                                 <span class="topic"> Withdraw </span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'transaction_history' %}" class="sidebar-link">
+                                <i class="fas fa-user-plus pe-2"></i>
+                                <span class="topic"> History </span>
                             </a>
                         </li>
                         <li class="sidebar-item">

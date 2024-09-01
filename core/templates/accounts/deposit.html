@@ -1,0 +1,14 @@
+{% extends '../user_home.html' %}
+
+{% block content %}
+<h1>Deposit Funds</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Deposit</button>
+</form>
+
+<p>Account Balance: ${{ account.balance }}</p>
+<a href="{% url 'transaction_history' %}">View Transaction History</a>
+{% endblock %}

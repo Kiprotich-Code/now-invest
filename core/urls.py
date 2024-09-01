@@ -8,4 +8,12 @@ urlpatterns = [
 
     # accounts
     path('acc_details/', views.acc_details, name='acc_details'),
+
+    # transactions 
+    path('account/deposit/', views.deposit_view, name='deposit'),
+    path('account/withdraw/', views.withdraw_view, name='withdraw'),
+    path('account/transactions/', views.transaction_history_view, name='transaction_history'),
+
+    # users
+    path('my_profile', views.my_profile, name='my_profile'),
 ]
