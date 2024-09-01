@@ -28,14 +28,14 @@
             <hr>
             <ul class="mynav nav nav-pills flex-column mb-auto">
                 <li class="nav-item mb-1">
-                    <a href="#">
+                    <a href="{% url 'user_home' %}">
                         <i class="fa-regular fa-user"></i>
                         Dashboard
                     </a>
                 </li>
 
                 <li class="nav-item mb-1">
-                    <a href="#">
+                    <a href="{% url 'acc_details' %}">
                         <i class="fa-solid fa-archway"></i>
                         Account
                     </a>
@@ -67,7 +67,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
+                            <a href="{% url 'signout' %}" class="sidebar-link">
                                 <i class="fas fa-sign-out-alt pe-2"></i>
                                 <span class="topic">Log Out</span>
                             </a>
@@ -108,7 +108,10 @@
                 <hr>
                 <div class="row">
                     <div class="col">
+                        {% block content %}
                         <p>Page content goes here</p>
+                        {{request.user}}
+                        {% endblock %}
                     </div>
                 </div>
             </div>

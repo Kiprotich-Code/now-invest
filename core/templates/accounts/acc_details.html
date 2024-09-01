@@ -1,0 +1,13 @@
+{% extends '../user_home.html' %}
+
+{% block content %}
+<h1>Account Details</h1>
+    
+<div>
+    <p><strong>Account Number:</strong> {{ acc.account_no }}</p>
+    <p><strong>Balance:</strong> ${{ acc.balance }}</p>
+    <p><strong>User:</strong> {{ acc.user.first_name }} {{ acc.user.last_name }}</p>
+    <p><strong>Email:</strong> {{ acc.user.email }}</p>
+</div>
+
+{% endblock %}
