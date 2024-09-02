@@ -4,8 +4,17 @@ from accounts.models import CustomUser
 
 # Models 
 class Account(models.Model):
+    STATUS = [
+        ('Active', 'active'),
+        ('Inactive', 'inactive'),
+        ('Pending', 'pending'),
+        ('On Hold', 'on hold'),
+        ('Closed', 'closed'),
+    ]
+
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='account')
     balance = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
+    status = models.CharField(max_length=50, choices=STATUS, default='pending')
     
     # Automatically pull the account number from CustomUser
     account_no = models.CharField(max_length=12, editable=False, unique=True)

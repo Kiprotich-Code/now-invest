@@ -64,3 +64,4 @@ class AccountDeleteView(DeleteView):
     model = Account
     success_url = '/dashboadr/accounts/'
     template_name = 'accounts/confirm_delete_account.html'
+
