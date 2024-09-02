@@ -1,0 +1,14 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<div>
+    <p>{{user.email}}</p>
+    <p>{{user.first_name}}</p>
+    <p>{{user.last_name}}</p>
+    <p>{{user.account_no}}</p>
+</div>
+
+<!-- actions  -->
+ <a class="btn btn-primary btn-sm" href="{% url 'update_user' user.id %}">Update</a>
+ <a class="btn btn-danger btn-sm">Delete</a>
+{% endblock %}

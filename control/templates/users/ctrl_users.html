@@ -1,6 +1,11 @@
 {% extends '../dashboard.html' %}
 
 {% block content %}
+<div class="d-flex justify-content-end">
+    <a href="{% url 'add_user' %}" class="btn btn-primary">
+        Add User
+    </a>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -17,17 +22,23 @@
 
     {% for user in users %}
     <tr>
-        <td>{{user.name}}</td>
+        <td>{{user.first_name}}</td>
         <td>{{user.email}}</td>
-        <td>{{user.status}}</td>
+        <td>
+            {% if user.is_active %}
+                <a href="" class="btn btn-outline-primary btn-sm rounded">Active</a>
+            {% else %}
+                <a href="" class="btn btn-danger btn-sm rounded">Not active</a>
+            {% endif %}
+        </td>
         <td>{{user.user_type}}</td>
         <td>{{user.account_no}}</td>
         <td>{{user.date_joined}}</td>
         <td>
-            <a href="" class="btn btn-sm btn-success rounded">Update</a>
+            <a href="{% url 'update_user' user.id %}" class="btn btn-sm btn-success rounded">Update</a>
         </td>
         <td>
-            <a href="" class="btn btn-primary btn-sm rounded">Details</a>
+            <a href="{% url 'user_details' user.id %}" class="btn btn-primary btn-sm rounded">Details</a>
         </td>
     </tr>
     {% endfor %}

@@ -7,4 +7,11 @@ urlpatterns = [
     # users 
     path('ctrl_users/', views.ctrl_users, name='ctrl_users'),
     path('add_user/', views.add_user, name='add_user'),
+    path('ctrl_users/update/<user_id>', views.update_user, name='update_user'),
+    path('ctrl_user/details/<user_id>', views.user_details, name='user_details'),
+
+    # accounts 
+    path('accounts/', views.AccountListView.as_view(), name='accounts'),
+    path('accounts/update/<int:id>', views.AccountUpdateView.as_view(), name='update_account'),
+    path('accounts/delete/<int:id>', views.AccountDeleteView.as_view(), name='delete_account'),
 ]
