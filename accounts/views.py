@@ -62,11 +62,14 @@ def signin(request):
             login(request, user)
                     
             # Redirect users based on role
-            if user.user_type in ['User', 'user']:
+            if user.is_staff:
+                return redirect('dashboard')
+
+            elif user.user_type in ['User', 'user']:
                 return redirect('user_home')
 
-            elif user.user_type.lower() == 'admin':
-                return redirect('home')
+            elif user.user_type.lower() == 'staff':
+                return redirect('dashboard')
             
             else:
                 messages.error('Could not determine your user type!')
