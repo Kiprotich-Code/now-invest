@@ -1,0 +1,35 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Status</td>
+            <td>User Type</td>
+            <td>Account No</td>
+            <td>Joined</td>
+            <td>#</td>
+            <td>#</td>
+        </tr>
+    </thead>
+
+    {% for user in users %}
+    <tr>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.status}}</td>
+        <td>{{user.user_type}}</td>
+        <td>{{user.account_no}}</td>
+        <td>{{user.date_joined}}</td>
+        <td>
+            <a href="" class="btn btn-sm btn-success rounded">Update</a>
+        </td>
+        <td>
+            <a href="" class="btn btn-primary btn-sm rounded">Details</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -89,5 +89,7 @@ def transaction_history_view(request):
 # USER VIEWS 
 # my profile 
 def my_profile(request):
+    acc_no = request.user.account_no
     acc_info = Account.objects.get(user=request.user)
-    return render(request, 'users/my_profile.html', {'acc_info': acc_info})
+    user_info = CustomUser.objects.get(account_no=acc_no)
+    return render(request, 'users/my_profile.html', {'acc_info': acc_info, 'user_info': user_info})

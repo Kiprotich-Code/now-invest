@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirectn 
+from django.shortcuts import render, redirect
 from .forms import AddUserForm
+from accounts.models import CustomUser
 
 # Create your views here.
 def dashboard(request):
@@ -12,4 +13,13 @@ def add_user(request):
         form = AddUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect
+            return redirect('ctrl_users')
+        
+    else: 
+        form = AddUserForm()
+
+    return render(request, 'users/add_user.html', {'form': form})
+
+def ctrl_users(request):
+    users = CustomUser.objects.all()
+    return render(request, 'users/ctrl_users.html', {'users': users})
