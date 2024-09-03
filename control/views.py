@@ -97,3 +97,9 @@ def update_transaction(request, id):
             return redirect('transactions')  # Redirect to transaction list page or another appropriate page
     
     return render(request, 'transactions/transaction_update.html', {'transaction': transaction})
+
+
+# ADMIN PROFILE 
+def admin_profile(request):
+    admin_info = CustomUser.objects.get(id=request.user.id)
+    return render(request, 'admin_profile.html', {'admin_info': admin_info})

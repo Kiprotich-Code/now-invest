@@ -18,4 +18,7 @@ urlpatterns = [
     # transactions 
     path('transactions/', views.TransactionListView.as_view(), name='transactions'),
     path('transactions/update/<int:id>', views.update_transaction, name='transaction_update'),
+
+    # profile 
+    path('admin_profile', views.admin_profile, name='admin_profile'),
 ]
