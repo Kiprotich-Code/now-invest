@@ -33,6 +33,9 @@
         <td>{{account.balance}}</td>
         <td>{{account.user.date_joined}}</td>
         <td>
+            {{account.status}}
+        </td>
+        <td>
             <a href="{% url 'update_account' account.id %}" class="btn btn-sm btn-success rounded">Update</a>
         </td>
         <td>

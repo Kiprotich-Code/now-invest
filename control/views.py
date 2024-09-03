@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import AddUserForm, UpdateUserForm
+from .forms import AddUserForm, UpdateUserForm, UpdateAccountStatusForm
 from accounts.models import CustomUser
-from django.views.generic import CreateView, UpdateView, ListView , DeleteView
+from django.views.generic import ListView , DeleteView
 from core.models import Account, Transaction
 
 # Create your views here.
@@ -53,11 +53,17 @@ class AccountListView(ListView):
     template_name = 'accounts/accounts.html'
     paginate_by = 5
 
-class AccountUpdateView(UpdateView):
-    template_name = 'accounts/account_update.html'
-    model = Account
-    fields = ('title', 'sub_title', 'desc', 'category', 'author', )
-    success_url = '/dashboard/accounts/'
+def update_account(request, id):
+    acc = Account.objects.get(id=id)  # Fetch the account object or return 404 if not found
+    if request.method == 'POST':
+        new_status = request.POST.get('status')  # Get the status from the button value
+        if new_status:
+            acc.status = new_status  # Update the account's status
+            acc.save()  # Save the change to the database
+            return redirect('accounts')  # Redirect to account detail page or another appropriate page
+    
+    return render(request, 'accounts/account_update.html', {'account': acc})
+
 
 
 class AccountDeleteView(DeleteView):

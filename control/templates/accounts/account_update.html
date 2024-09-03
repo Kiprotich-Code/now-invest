@@ -1,0 +1,16 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<h3>Status: {{ account.status }}</h3>
+<form method="POST">
+    {% csrf_token %}
+    <div class="button-group">
+        <button type="submit" name="status" value="Approved" class="btn btn-primary rounded">Approve Account</button>
+        <button type="submit" name="status" value="Inactive" class="btn btn-primary rounded">Mark as Inactive</button>
+        <button type="submit" name="status" value="Pending" class="btn btn-primary rounded">Mark as Pending</button>
+        <button type="submit" name="status" value="On Hold" class="btn btn-primary rounded">Hold</button>
+        <button type="submit" name="status" value="Closed" class="btn btn-primary rounded">Close Account</button>
+    </div>
+</form>
+
+{% endblock %}

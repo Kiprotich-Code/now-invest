@@ -17,5 +17,3 @@ class WithdrawForm(forms.ModelForm):
         if amount <= 100:
             raise forms.ValidationError("Amount must be more than 100.")
         return amount
-    
-
