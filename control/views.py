@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
-from .forms import AddUserForm, UpdateUserForm, UpdateAccountStatusForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import AddUserForm, UpdateUserForm
 from accounts.models import CustomUser
-from django.views.generic import ListView , DeleteView
+from django.views.generic import ListView , DeleteView, DetailView, UpdateView
 from core.models import Account, Transaction
 
 # Create your views here.
@@ -65,9 +65,35 @@ def update_account(request, id):
     return render(request, 'accounts/account_update.html', {'account': acc})
 
 
-
 class AccountDeleteView(DeleteView):
     model = Account
-    success_url = '/dashboadr/accounts/'
+    success_url = '/dashboad/accounts/'
     template_name = 'accounts/confirm_delete_account.html'
 
+
+# TRANSACTION VIEWS
+class TransactionListView(ListView):
+    context_object_name = 'transactions'
+    model = Transaction
+    template_name = 'transactions/transactions.html'
+    paginate_by = 10
+
+
+def update_transaction(request, id):
+    transaction = get_object_or_404(Transaction, id=id)
+
+    # Prevent updates to rejected transactions
+    if transaction.tr_status == 'Rejected':
+        return render(request, 'transactions/transaction_update.html', {
+            'transaction': transaction,
+            'error_message': 'Rejected transactions cannot be modified.'
+        })
+
+    if request.method == 'POST':
+        new_status = request.POST.get('tr_status')  # Get the status from the button value
+        if new_status:
+            transaction.tr_status = new_status
+            transaction.save()  # Save the change to the database
+            return redirect('transactions')  # Redirect to transaction list page or another appropriate page
+    
+    return render(request, 'transactions/transaction_update.html', {'transaction': transaction})

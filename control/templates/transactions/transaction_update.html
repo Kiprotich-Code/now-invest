@@ -1,0 +1,14 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<h3>Status: {{ transaction.status }}</h3>
+<form method="POST">
+    {% csrf_token %}
+    <div class="button-group">
+        <button type="submit" name="tr_status" value="Approved" class="btn btn-primary rounded">Approve</button>
+        <button type="submit" name="tr_status" value="Pending" class="btn btn-primary rounded">Mark as Pending</button>
+        <button type="submit" name="tr_status" value="Rejected" class="btn btn-primary rounded">Reject</button>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-end m-3">
+    <a href="#" class="btn  btn-sm btn-primary">
+        SOME ACTION
+    </a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <td>ACC NO</td>
+            <td>User</td>
+            <td>Amount</td>
+            <td>Balance</td>
+            <td>Type</td>
+            <td>Timestamp</td>
+            <td>Status</td>
+            <td>#</td>
+            <td>#</td>
+        </tr>
+    </thead>
+
+    {% for tr in transactions %}
+    <tr>
+        <td>{{tr.account.account_no}}</td>
+        <td>{{tr.account.user.email}}</td>
+        <td>{{tr.amount}}</td>
+        <!-- <td>
+            {% if tr.is_active %}
+                <a href="" class="btn btn-outline-primary btn-sm rounded">Active</a>
+            {% else %}
+                <a href="" class="btn btn-danger btn-sm rounded">Not active</a>
+            {% endif %}
+        </td> -->
+        <td>{{tr.account.balance}}</td>
+        <td>{{tr.transaction_type}}</td>
+        <td>{{tr.date | timesince }} ago</td>
+        <td>
+            {{tr.tr_status}}
+        </td>
+        <td>
+            <a href="{% url 'transaction_update' tr.id %}" class="btn btn-sm btn-success rounded">Update</a>
+        </td>
+        <td>
+            <a href="#" class="btn btn-primary btn-sm rounded">Details</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

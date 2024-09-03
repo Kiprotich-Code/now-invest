@@ -42,10 +42,31 @@ class Transaction(models.Model):
         ('withdrawal', 'Withdrawal'),
     )
 
+    STATUS = (
+        ('Pending', 'pending'),
+        ('Confirmed', 'confirmed'),
+        ('Rejected', 'rejected'),
+    )
+
     account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='transactions')
     transaction_type = models.CharField(max_length=10, choices=TRANSACTION_TYPES)
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     date = models.DateTimeField(default=timezone.now)
+    tr_status = models.CharField(max_length=55, choices=STATUS, default='Pending')
+
+    def save(self, *args, **kwargs):
+        # Set default statuses based on transaction type
+        if not self.id:  # Only when the transaction is first created
+            if self.transaction_type == 'deposit':
+                self.tr_status = 'Confirmed'  # Automatically approve deposits
+            elif self.transaction_type == 'withdrawal':
+                self.tr_status = 'Pending'  # Set withdrawals to pending by default
+
+        # Prevent changes if the status is rejected
+        if self.tr_status == 'Rejected' and self.pk is not None:
+            raise ValueError("Cannot update a rejected transaction.")
+
+        super(Transaction, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.transaction_type.capitalize()} of {self.amount} on {self.date}"
