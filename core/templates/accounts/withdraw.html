@@ -1,14 +1,20 @@
 {% extends '../user_home.html' %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
 
 {% block content %}
-<h1>Withdraw Funds</h1>
+<div class="container py-4">
+    <div class="card p-3 rounded">
+        <p class="font-weight-bold">Withdraw Funds</p>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Withdraw</button>
-</form>
+        <form method="post">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <input type="submit" class="btn btn-sm btn-primary" value="Withdraw">
+        </form>
 
-<p>Account Balance: ${{ account.balance }}</p>
-<a href="{% url 'transaction_history' %}">View Transaction History</a>
+        <p class="py-2 small">Account Balance: ${{ account.balance }}</p>
+        <a href="{% url 'transaction_history' %}" class="text-primary text-xs">Back To Transaction History</a>
+    </div>
+</div>
 {% endblock %}
