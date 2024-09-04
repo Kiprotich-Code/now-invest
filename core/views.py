@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from accounts.models import CustomUser
-from .models import Account
+from .models import Account, Transaction
 from .forms import DepositForm, WithdrawForm
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -10,7 +10,19 @@ def home(request):
     return render(request, 'index.html')
 
 def user_home(request):
-    return render(request, 'user_home.html')
+    account = request.user.account
+    transactions = Transaction.objects.filter(account=account).order_by('-date')[0:10]
+    transaction_count = transactions.count()
+    pending_transaction_count = Transaction.objects.filter(account=account, tr_status='Pending').count()
+    confirmed_transaction_count = Transaction.objects.filter(account=account, tr_status='Confirmed').count()
+
+    context = {
+        'transactions': transactions,
+        'transaction_count': transaction_count,
+        'pending_transaction_count': pending_transaction_count,
+        'confirmed_transaction_count': confirmed_transaction_count
+    }
+    return render(request, 'user_home.html', context)
 
 
 # ACCOUNTS VIEWS 

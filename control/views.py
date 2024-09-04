@@ -3,11 +3,40 @@ from .forms import AddUserForm, UpdateUserForm
 from accounts.models import CustomUser
 from django.views.generic import ListView , DeleteView, DetailView, UpdateView
 from core.models import Account, Transaction
+from django.utils import timezone
+from django.db.models import Sum, Q
 
 # Create your views here.
 def dashboard(request):
-    accounts = Account.objects.all()
-    return render(request, 'dashboard.html', {'accounts': accounts})
+    accounts = Account.objects.all()[0:10]
+    accounts_count = Account.objects.all().count()
+    # New accounts created today
+    today = timezone.now().date()
+    new_accounts = CustomUser.objects.filter(date_joined__date=today).count() 
+    # Total cash in all accounts (assuming 'balance' is the field in the Account model)
+    total_cash = Account.objects.aggregate(total_balance=Sum('balance'))['total_balance'] or 0
+
+    transactions_today = Transaction.objects.filter(date__date=today)
+    total_balance_today = transactions_today.aggregate(
+        total_deposits=Sum('amount', filter=Q(transaction_type='deposit')),
+        total_withdrawals=Sum('amount', filter=Q(transaction_type='withdrawal'))
+    )
+    total_balance_today = (total_balance_today['total_deposits'] or 0) - (total_balance_today['total_withdrawals'] or 0)
+
+    # all transactions 
+    transactions = Transaction.objects.all().order_by('-date')[0:3]
+    transactions_count = Transaction.objects.all().count()
+
+    context = {
+        'accounts': accounts,
+        'accounts_count': accounts_count, 
+        'new_accounts': new_accounts,
+        'total_cash':total_cash,
+        'total_balance_today': total_balance_today,
+        'transactions': transactions,
+        'transactions_count': transactions_count
+    }
+    return render(request, 'dashboard.html', context)
 
 # CRUD ON USERS 
 # CREATE - USER 
