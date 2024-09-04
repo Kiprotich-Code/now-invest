@@ -6,7 +6,8 @@ from core.models import Account, Transaction
 
 # Create your views here.
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    accounts = Account.objects.all()
+    return render(request, 'dashboard.html', {'accounts': accounts})
 
 # CRUD ON USERS 
 # CREATE - USER 
@@ -34,7 +35,7 @@ def update_user(request, user_id):
         form = UpdateUserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('user_details')
+            return redirect('ctrl_users')
         
     else:
         form = UpdateUserForm(instance=user)
@@ -55,6 +56,7 @@ class AccountListView(ListView):
 
 def update_account(request, id):
     acc = Account.objects.get(id=id)  # Fetch the account object or return 404 if not found
+    user = CustomUser.objects.get(account_no = acc.account_no)
     if request.method == 'POST':
         new_status = request.POST.get('status')  # Get the status from the button value
         if new_status:
@@ -62,7 +64,7 @@ def update_account(request, id):
             acc.save()  # Save the change to the database
             return redirect('accounts')  # Redirect to account detail page or another appropriate page
     
-    return render(request, 'accounts/account_update.html', {'account': acc})
+    return render(request, 'accounts/account_update.html', {'acc': acc, 'user': user})
 
 
 class AccountDeleteView(DeleteView):

@@ -7,7 +7,16 @@ from core.models import Account
 class AddUserForm(forms.ModelForm):
     class Meta:
         model  = CustomUser
-        fields = ['first_name', 'last_name', 'phone_no', 'email', 'password', ]
+        fields = ['first_name', 'last_name', 'phone_no', 'email', 'address', 'password', ]
+        widgets = {
+            'email': forms.TextInput(attrs={'class': 'form-control',  'style': 'max-width: 600px', 'placeholder': "Email Address"}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control',  'style': 'max-width: 600px', 'placeholder': "First Name"}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control',  'style': 'max-width: 600px', 'placeholder': "Last Name"}),
+            'phone_no': forms.TextInput(attrs={'class': 'form-control',  'style': 'max-width: 600px', 'placeholder': "Phone No"}),
+            'address': forms.TextInput(attrs={'class': 'form-control',  'style': 'max-width: 600px', 'placeholder': "Enter Address"}),
+            'password': forms.PasswordInput(attrs={'class': 'form-control',  'style': 'max-width: 600px', 'placeholder': "Enter Password"}),
+        }
+
 
 
 class UpdateUserForm(UserChangeForm):
@@ -15,6 +24,12 @@ class UpdateUserForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = ['first_name', 'last_name', 'phone_no', 'email', ]
+        widgets = {
+            'email': forms.TextInput(attrs={'class': 'form-control',  'style': 'max-width: 600px', 'placeholder': "Email Address"}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control',  'style': 'max-width: 600px', 'placeholder': "First Name"}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control',  'style': 'max-width: 600px', 'placeholder': "Last Name"}),
+            'phone_no': forms.TextInput(attrs={'class': 'form-control',  'style': 'max-width: 600px', 'placeholder': "Phone No"}),
+        }
 
 
 class UpdateAccountStatusForm(forms.ModelForm):
