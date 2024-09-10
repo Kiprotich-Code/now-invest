@@ -1,47 +1,565 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <title>CashNow</title> -->
+    <title>Cashnow Investiment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    {% block content %}
-    <div>
-        <!-- ========== Start Navbar ========== -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- ========== Start Header ========== -->
+    <div class="header vh-100 rounded header-bg">
+        <!-- nav  -->
+        <nav class="navbar navbar-expand-lg bg-light p-3 fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand px-md-5 text-primary fw-bold" id="brand" href="#">CASHNOW</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-md-flex justify-content-end w-100">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'signup_step1' %}">Join Us</a>
+                            <a class="nav-link" href="#about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'signin' %}">Login</a>
+                            <a class="nav-link" href="#explore">Explore</a>
                         </li>
-                    </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./properties.html">Properties</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact Us</a>
+                        </li>
+                        <li class="nav-item mx-md-5">
+                            <a class="btn btn-primary rounded" href="#callback">Instant Callback</a>
+                        </li>
                 </div>
             </div>
         </nav>
-        <!-- ========== End Navbar ========== -->
+        {% block content %}
+        <!-- header content  -->
+        <div class="p-5">
+            <div class="mt-5">
+                <div class="p-5 col col-md-6 rounded" style="background-color: rgba(250, 250, 250, 0.5);">
+                    <p class="btn btn-sm rounded btn-outline-primary small p-2">Start Today</p>
+                    <p class="btn btn-sm rounded btn-outline-primary small p-2">Learn More</p>
+                    <h1 class="large_h fw-bold">
+                        Invest Your Money With <span class="text-primary">Higher Return</span>
+                    </h1>
+
+                    <h5 class="">
+                        Low fees, diversified portfolios, and cutting-edge tools, to make investing simple and effective
+                        just for you.
+                        Our tailored strategies and expert guidance empower you to grow your wealth confidently.
+                    </h5>
+
+                    <!-- social links  -->
+                    <div class="mt-4">
+                        <p class="py-2 fw-lighter">Find Us On Social Media</p>
+                        <div class="d-flex gap-3">
+                            <a href="https://facebook.com" class="me-3" target="_blank">
+                                <i class="fab fa-facebook fa-2x"></i>
+                            </a>
+                            <a href="https://twitter.com" class="me-3" target="_blank">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </a>
+                            <a href="https://linkedin.com" class="me-3" target="_blank">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank">
+                                <i class="fab fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- ========== End Header ========== -->
+
+    <!-- ========== Start HERO ========== -->
+    <div class="vh-100 bg-vc container">
+        <div class="row">
+            <div class="col p-5">
+                <img src="./assets/images/vec1.jpg" alt="img" style="width: 100%;" class="rounded">
+            </div>
+            <div class="col p-3">
+                <h2 class="fw-bold">Meet Our Company, Start Your <span class="text-primary">Success Journey</span> Today
+                </h2>
+                <p class="py-3 fw-light"> <strong>"</strong>
+                    A journey of a thousand miles, starts today!"
+                </p>
+                <h5 class="py-2">
+                    We are dedicated to your success. Unlock financial growth, implement proven strategies, and leverage
+                    innovative solutions designed to
+                    transform your vision into reality. With expert guidance and a trusted team, experience a journey
+                    toward long-term success that puts you ahead in a competitive market. Start today and see the impact
+                    firsthand.
+                </h5>
+                <button class="btn btn-lg btn-primary rounded">Join Us</button>
+            </div>
+        </div>
+    </div>
+    <!-- ========== End HERO ========== -->
+
+    <div style="background-color: #3A0AFF;">
+        <div class="container">
+            <div class="row p-5">
+                <div class="col d-flex flex-column justify-content-center align-items-center text-white">
+                    <h1 class="large_h">Build a Network You Can Rely On</h1>
+                    <p>
+                        It's time time to secure your financial future. With our investment
+                        services, you'll gain access to expert insights, diversified portfolios, and proven strategies
+                        tailored
+                        to
+                        your goals. Achieve consistent growth with personalized guidance and a platform designed for
+                        success.
+                        Start
+                        investing today and watch your financial network flourish, giving you the peace of mind and
+                        stability
+                        you
+                        deserve.</p>
+                </div>
+                <div class="col p-5 rounded">
+                    <img src="./assets/images/polish.jpeg" alt="" style="width: 100%;" class="rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== Start Get Started ========== -->
+    <div class="container p-5 bg-vc">
+        <div class="row">
+            <div class="col p-3">
+                <h3 class="large_h">Welcome To The Club</h3>
+                <p class="fw-light">Here's how you can get started!</p>
+                <div class="stepper d-flex flex-column mt-5 ml-2">
+                    <div class="d-flex mb-1">
+                        <div class="d-flex flex-column pr-4 align-items-center">
+                            <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">1</div>
+                            <div class="line h-100"></div>
+                        </div>
+                        <div>
+                            <h5 class="text-dark">Create an Account</h5>
+                            <p class="lead text-muted pb-3">Start by creating your account <a href="#">here</a></p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-1">
+                        <div class="d-flex flex-column pr-4 align-items-center">
+                            <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">2</div>
+                            <div class="line h-100"></div>
+                        </div>
+                        <div>
+                            <h5 class="text-dark">Make Your First Deposit</h5>
+                            <p class="lead text-muted pb-3">Make an initial deposit in your account</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-1">
+                        <div class="d-flex flex-column pr-4 align-items-center">
+                            <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">3</div>
+                            <div class="line h-100 d-none"></div>
+                        </div>
+                        <div>
+                            <h5 class="text-dark">Sit Back, Relax and Earn</h5>
+                            <p class="lead text-muted pb-3">Our team of experts would make tough investiment decisions,
+                                so you can come back next time and spend your cash!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <img src="./assets/images/vec2.png" alt="" style="width: 100%;">
+            </div>
+        </div>
+    </div>
+    <!-- ========== End Get Started ========== -->
+
+    <!-- ========== Start Features ========== -->
+    <div class="features"
+        style="background: url('./assets/images/img1.jpeg'); background-repeat: no-repeat; background-size: cover; background-position: top;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col">
+                    <!-- <img src="./assets/images/stock-photo-cropped-view-businessman-preventing-wooden-blocks-falling-while-holding-brick.jpeg" alt=""
+                        style="width: 100%; height: 100%;" class="rounded"> -->
+                </div>
+                <div class="col d-flex flex-column gap-3">
+                    <h1 class="large_h"><span class="text-primary">Features</span> We Have</h1>
+                    <div class="card p-3">
+                        <h5> Tailored Strategies for Maximum Growth</h5>
+                        <p class="small"> By understanding your unique financial goals and risk tolerance, we craft
+                            investment plans that are optimized for your specific
+                            needs. This ensures that your money works harder and smarter for you.</p>
+                    </div>
+
+                    <div class="card p-3">
+                        <h5> Consistent and Measurable Results</h5>
+                        <p class="small"> We track every step of your financial journey, providing consistent returns
+                            and measurable growth. Our focus on diversified portfolios and market insights ensures that
+                            your investments are resilient and constantly aligned with changing market dynamics.</p>
+                    </div>
+
+                    <div class="card p-3">
+                        <h5> Long-Term Wealth Building</h5>
+                        <p class="small"> Our approach prioritizes sustainable wealth creation. We don’t just aim for
+                            short-term gains—we help you build a financial foundation that secures your future, with a
+                            focus on steady and reliable growth over time.</p>
+                    </div>
+
+                    <div class="card p-3">
+                        <h5> Expert Guidance at Every Stage</h5>
+                        <p class="small"> Navigating the complexities of the financial world can be overwhelming. Our
+                            team of seasoned experts is with you every step of the way, offering insights and guidance
+                            to ensure that every decision you make is a step toward greater financial success.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ========== End Features ========== -->
+
+    <!-- ========== Start Pro Traders ========== -->
+    <div class="container p-5 bg-vc">
+        <h3 class="large_h">Articles For <strong class="text-primary">Pro Traders</strong></h3>
+        <h5 class="py-3">We Offer You <strong class="text-primary">Financial Lessons</strong> You Won't Want To
+            Miss</h5>
+        <div class="d-flex gap-3">
+            <div class="card" style="width: 40rem;">
+                <img src="./assets/images/stock-photo-cropped-view-business-partners-shaking-hands-coffee-euro-banknotes-table.jpeg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Mastering Risk Management: The Key to Long-Term Trading Success</h5>
+                    <p class="card-text small fw-light">Every trader knows that risk management is essential, but few
+                        truly master it.
+                        This article dives deep into advanced risk management techniques, including position sizing,
+                        stop-loss strategies, and portfolio diversification. </p>
+                    <a href="#" class="">Read More</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 40rem;">
+                <img src="./assets/images/stock-photo-cropped-view-business-partners-shaking-hands-coffee-euro-banknotes-table.jpeg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Algorithmic Trading: How to Automate Your Strategy for Consistent Profits
+                    </h5>
+                    <p class="card-text small fw-light">With the rise of algorithmic trading, more traders are exploring
+                        ways to
+                        automate their strategies for efficiency and consistency. </p>
+                    <a href="#" class="">Read More</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 40rem;">
+                <img src="./assets/images/stock-photo-cropped-view-business-partners-shaking-hands-coffee-euro-banknotes-table.jpeg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">How to Trade During Market Volatility: Strategies for Profit in Uncertain
+                        Times</h5>
+
+                    <p class="card-text small fw-light">In this article, we explore advanced strategies for capitalizing
+                        on volatile markets, including
+                        options trading, hedging techniques, and utilizing technical indicators like the VIX (Volatility
+                        Index).</p>
+                    <a href="#" class="">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="py-5">
+            <button class="btn btn-primary rounded">View More</button>
+        </div>
+    </div>
+    <!-- ========== End Pro Traders ========== -->
+
+    <!-- ========== Start Beginner Articles ========== -->
+    <div class="container px-5 bg-vc">
+        <h3 class="large_h">Articles For <strong class="text-primary">Begginers</strong></h3>
+        <h5 class="py-3">If You're <strong class="text-primary">Starting Out</strong> You Don't Want To
+            Miss This!</h5>
+        <div class="d-flex gap-3">
+            <div class="card" style="width: 40rem;">
+                <img src="./assets/images/stock-photo-cropped-view-business-partners-shaking-hands-coffee-euro-banknotes-table.jpeg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Trading 101: A Complete Beginner’s Guide to the Stock Market</h5>
+                    <p class="card-text small fw-light">For anyone new to trading, the stock market can feel
+                        overwhelming. This article breaks down the basics—what stocks are, how the market works, and the
+                        key terms every trader should know. </p>
+                    <a href="#" class="">Read More</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 40rem;">
+                <img src="./assets/images/stock-photo-cropped-view-business-partners-shaking-hands-coffee-euro-banknotes-table.jpeg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">The Importance of a Trading Plan: How to Create Your Own</h5>
+                    <p class="card-text small fw-light">Every successful trader starts with a plan. In this article, we
+                        guide beginners on how to develop a personalized trading plan. It covers essential elements like
+                        setting realistic goals, defining risk tolerance, choosing a trading strategy, and tracking
+                        performance.</p>
+                    <a href="#" class="">Read More</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 40rem;">
+                <img src="./assets/images/stock-photo-cropped-view-business-partners-shaking-hands-coffee-euro-banknotes-table.jpeg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Understanding Technical Analysis: How to Read Charts Like a Pro</h5>
+
+                    <p class="card-text small fw-light">Technical analysis is an essential skill for traders, and this
+                        article explains it in simple terms. It walks beginners through the most common chart types
+                        (line, bar, and candlestick), introduces key indicators like moving averages and RSI, and
+                        explains how to spot basic chart patterns. </p>
+                    <a href="#" class="">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="py-5">
+            <button class="btn btn-primary rounded">View More</button>
+        </div>
+    </div>
+    <!-- ========== End Beginner Articles ========== -->
+
+    <!-- ========== Start Testimonials ========== -->
+    <section id="testimonials" class="bg-vc">
+        <div class="container">
+            <div class="accordion d-flex justify-content-center align-items-center height" id="accordionExample">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="p-3">
+                            <h1 class="large_h">
+                                <strong class="text-primary">Meet</strong> Our Clients
+                            </h1>
+                            <ul class="testimonial-list">
+                                <li>
+                                    <div class="card p-3" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <img src="https://i.imgur.com/G1pXs7D.jpg" width="50"
+                                                class="rounded-circle">
+                                            <div class="d-flex flex-column ml-2">
+                                                <span class="font-weight-normal">Milton Austin</span>
+                                                <span>Sales Manager, Stack</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="card p-3" data-toggle="collapse" data-target="#collapseTwo"
+                                        aria-expanded="false" aria-controls="collapseTwo">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <img src="https://i.imgur.com/udGH5tO.jpg" width="50"
+                                                class="rounded-circle">
+                                            <div class="d-flex flex-column ml-2">
+                                                <span class="font-weight-normal">John Reeves</span>
+                                                <span>Head of Sales, Asana</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="card p-3" data-toggle="collapse" data-target="#collapseThree"
+                                        aria-expanded="false" aria-controls="collapseThree">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <img src="https://i.imgur.com/Uz4FjGZ.jpg" width="50"
+                                                class="rounded-circle">
+                                            <div class="d-flex flex-column ml-2">
+                                                <span class="font-weight-normal">Luke Harper</span>
+                                                <span>Sales Team Lead,Sketch</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="p-3 testimonials-margin">
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <h4>A Game-Changer for My Financial Future!</h4>
+                                    <div class="ratings">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+
+                                    <p>Before working with this team, I felt completely lost when it came to investing.
+                                        I had some savings but no real strategy or understanding of how to grow my
+                                        wealth. After sitting down with their advisors, they really took the time to
+                                        understand my goals and financial situation. They crafted a personalized
+                                        investment plan that made sense for me. Over the past three years, I’ve seen
+                                        consistent growth in my portfolio, even in challenging market conditions. Their
+                                        expertise and proactive management have been invaluable. Today, I feel more
+                                        confident than ever about my financial future, and I know I’m on track to meet
+                                        my long-term goals thanks to their guidance!</p>
+                                </div>
+                            </div>
+
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <h4>They Transformed My Financial Approach</h4>
+                                    <div class="ratings">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+
+                                    <p>I’ve worked with other financial advisors before, but none compared to the
+                                        level of service I’ve received here. They don’t just talk numbers; they educate
+                                        you on the 'why' behind every decision. After only a few months, I was already
+                                        seeing tangible improvements in my investment returns, and more importantly, I
+                                        understood the strategy behind the growth. Their team helped me diversify my
+                                        portfolio and take advantage of opportunities I would have never spotted on my
+                                        own. What really sets them apart is their genuine commitment to my financial
+                                        success—they regularly update me, adapt my plan based on market changes, and
+                                        make me feel like I’m in control of my financial destiny.</p>
+                                </div>
+                            </div>
+
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <h4>From Uncertainty to Financial Freedom</h4>
+                                    <div class="ratings">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+
+                                    <p> When I first approached this company, I was unsure about how to manage my
+                                        investments. I had heard horror stories about people losing money, and I didn’t
+                                        want to make the same mistakes. After our initial consultation, I felt a huge
+                                        weight lifted off my shoulders. They made everything simple to understand and
+                                        built a strategy that focused on both short-term gains and long-term security.
+                                        Over the years, my investments have steadily grown, and I’m now on track to
+                                        retire comfortably. I never imagined being this financially secure, and it’s all
+                                        thanks to their dedicated team who have been with me every step of the way.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========== End Testimonials ========== -->
+    {% endblock %}
+    <!-- Footer  -->
+    <footer>
+        <div class="container-fluid bg-dark text-white">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h4 class="text-primary">Cashnow Investiment</h4>
+                        <p class="">
+                            At Cashnow, we’re more than just investment advisors—we’re dedicated partners in
+                            your journey to financial success. Our mission is simple: to empower individuals and
+                            businesses by offering strategic, data-driven investment solutions that lead to real,
+                            measurable growth.
+                        </p>
+                    </div>
+                    <div class="col-12 col-sm-3">
+                        <h5 class="text-primary py-2">Useful Links</h5>
+                        <ul>
+                            <li><a class="text-decoration-none text-white" href="#">Get Started</a></li>
+                            <li><a class="text-decoration-none text-white" href="#contact">Contact Us</a></li>
+                            <li><a class="text-decoration-none text-white" href="#contact">Learn</a></li>
+                            <li><a class="text-decoration-none text-white" href="#contact">Testimonials</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-3">
+                        <h5 class="text-primary py-2">Security</h5>
+                        <ul>
+                            <li><a class="text-decoration-none text-white" href="#">Developers</a></li>
+                            <li><a class="text-decoration-none text-white" href="#">Privacy Policy</a></li>
+                            <li><a class="text-decoration-none text-white" href="#">User Agreements</a></li>
+                            <li><a class="text-decoration-none text-white" href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="p-5 text-center d-flex justify-content-center align-items-center">
+                    <div class="d-flex flex-wrap py-4">
+                        <div>
+                            <h4>Find Us On Social Media</h4>
+                            <div class="d-flex gap-3 py-3">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="blue"
+                                    class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                                </svg><br>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="black"
+                                    class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                    <path
+                                        d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                                </svg><br>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red"
+                                    class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                                </svg><br>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                    class="bi bi-discord" viewBox="0 0 16 16">
+                                    <path
+                                        d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612" />
+                                </svg><br>
+
+                            </div>
+                        </div>
+                        <h4 class="p-5"> Or </h4>
+                        <div id="callback">
+                            <h5>Get an Instant Callback</h5>
+                            <form action="" class="d-flex flex-column gap-1">
+                                <input type="text" class="form-control" placeholder="Enter Phone No">
+                                <button class="btn btn-outline-primary my-2">Get Callback</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h3 class="fw-lighter text-primary small">@2024 - Cashnow.</h3>
+                </div>
+            </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 
 </html>
