@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -70,10 +70,15 @@ WSGI_APPLICATION = 'cashnow.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',  # The name of your database
+        'USER': 'postgres',  # Your PostgreSQL username
+        'PASSWORD': 'avWDVLHaavDMMTqjUuUBaGugkzyGCfPh',  # The password for your PostgreSQL user
+        'HOST': 'junction.proxy.rlwy.net',  # The host for your database
+        'PORT': '57856',  # The port your PostgreSQL is running on
     }
 }
+
 
 
 # Password validation
@@ -112,9 +117,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR / 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
