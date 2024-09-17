@@ -21,11 +21,13 @@
 
 <body>
     <!-- ========== Start Header ========== -->
-    <div class="header vh-100 rounded header-bg">
+    <div class="header rounded header-bg text-light">
         <!-- nav  -->
-        <nav class="navbar navbar-expand-lg bg-light p-3 fixed-top">
+        <nav class="navbar navbar-expand-lg bg-light p-3 fixed-top shadow">
             <div class="container-fluid">
-                <a class="navbar-brand px-md-5 text-primary fw-bold" id="brand" href="#">CASHNOW</a>
+                <a class="navbar-brand px-md-5 text-primary fw-bold" id="brand" href="#">
+                    <img src="{% static 'images/logo-bg.png' %}" alt="" style="width: 60px;">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -40,84 +42,104 @@
                             <a class="nav-link" href="#about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#explore">Explore</a>
+                            <a class="nav-link" href="#get_started">Get Started</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./properties.html">Properties</a>
+                            <a class="nav-link" href="#features">Features</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact Us</a>
+                            <a class="nav-link" href="#testimonials">Reviews</a>
                         </li>
                         <li class="nav-item mx-md-5">
                             <a class="btn btn-primary rounded" href="#callback">Instant Callback</a>
                         </li>
+                    </ul>
                 </div>
             </div>
         </nav>
+
         {% block content %}
+
         <!-- header content  -->
-        <div class="p-5">
-            <div class="mt-5">
-                <div class="p-5 col col-md-6 rounded" style="background-color: rgba(250, 250, 250, 0.5);">
-                    <p class="btn btn-sm rounded btn-outline-primary small p-2">Start Today</p>
-                    <p class="btn btn-sm rounded btn-outline-primary small p-2">Learn More</p>
-                    <h1 class="large_h fw-bold">
-                        Invest Your Money With <span class="text-primary">Higher Return</span>
-                    </h1>
+        <div class="container p-5">
+            <div class="row">
+                <div class="col-md-6 mt-5">
+                    <div class="p-5 rounded" style="background-color: rgba(0, 0, 0, 0.5);">
+                        <h1 class="large_h fw-bold text-white">
+                            Invest Your Money With <span class="text-warning">Higher Returns</span>
+                        </h1>
 
-                    <h5 class="">
-                        Low fees, diversified portfolios, and cutting-edge tools, to make investing simple and effective
-                        just for you.
-                        Our tailored strategies and expert guidance empower you to grow your wealth confidently.
-                    </h5>
+                        <h5 class="text-light">
+                            Low fees, diversified portfolios, and cutting-edge tools to make investing simple and
+                            effective
+                            for you. Secure your financial future with confidence.
+                        </h5>
 
-                    <!-- social links  -->
-                    <div class="mt-4">
-                        <p class="py-2 fw-lighter">Find Us On Social Media</p>
-                        <div class="d-flex gap-3">
-                            <a href="https://facebook.com" class="me-3" target="_blank">
-                                <i class="fab fa-facebook fa-2x"></i>
-                            </a>
-                            <a href="https://twitter.com" class="me-3" target="_blank">
-                                <i class="fab fa-twitter fa-2x"></i>
-                            </a>
-                            <a href="https://linkedin.com" class="me-3" target="_blank">
-                                <i class="fab fa-linkedin fa-2x"></i>
-                            </a>
-                            <a href="https://instagram.com" target="_blank">
-                                <i class="fab fa-instagram fa-2x"></i>
-                            </a>
+                        <!-- Key Highlights -->
+                        <div class="mt-4 text-light">
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-arrow-up-right-circle text-success"></i> Maximize Your Returns</li>
+                                <li><i class="bi bi-shield-lock-fill text-success"></i> Secure & Transparent Platform
+                                </li>
+                                <li><i class="bi bi-bar-chart-fill text-success"></i> Real-Time Market Insights</li>
+                            </ul>
+                        </div>
+
+                        <!-- social links  -->
+                        <div class="mt-4">
+                            <p class="py-2 fw-lighter">Connect With Us</p>
+                            <div class="d-flex gap-3">
+                                <a href="https://facebook.com" class="me-3" target="_blank">
+                                    <i class="fab fa-facebook fa-2x"></i>
+                                </a>
+                                <a href="https://twitter.com" class="me-3" target="_blank">
+                                    <i class="fab fa-twitter fa-2x"></i>
+                                </a>
+                                <a href="https://linkedin.com" class="me-3" target="_blank">
+                                    <i class="fab fa-linkedin fa-2x"></i>
+                                </a>
+                                <a href="https://instagram.com" target="_blank">
+                                    <i class="fab fa-instagram fa-2x"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- ========== End Header ========== -->
 
     <!-- ========== Start HERO ========== -->
-    <div class="vh-100 bg-vc container">
-        <div class="row">
-            <div class="col p-5">
-                <img src="{% static 'images/vec1.jpg' %}" alt="img" style="width: 100%;" class="rounded">
-            </div>
-            <div class="col p-3">
-                <h2 class="fw-bold">Meet Our Company, Start Your <span class="text-primary">Success Journey</span> Today
-                </h2>
-                <p class="py-3 fw-light"> <strong>"</strong>
-                    A journey of a thousand miles, starts today!"
-                </p>
-                <h5 class="py-2">
-                    We are dedicated to your success. Unlock financial growth, implement proven strategies, and leverage
-                    innovative solutions designed to
-                    transform your vision into reality. With expert guidance and a trusted team, experience a journey
-                    toward long-term success that puts you ahead in a competitive market. Start today and see the impact
-                    firsthand.
-                </h5>
-                <button class="btn btn-lg btn-primary rounded">Join Us</button>
+    <section id="about">
+        <div class="vh-100 bg-vc container">
+            <div class="row py-5">
+                <div class="col p-3">
+                    <h2 class="fw-bold">Meet Our Company, Start Your <span class="text-primary">Success Journey</span>
+                        Today
+                    </h2>
+                    <p class="py-3 fw-light"> <strong>"</strong>
+                        A journey of a thousand miles, starts today!"
+                    </p>
+                    <h5 class="py-2">
+                        We are dedicated to your success. Unlock financial growth, implement proven strategies, and
+                        leverage
+                        innovative solutions designed to
+                        transform your vision into reality. With expert guidance and a trusted team, experience a
+                        journey
+                        toward long-term success that puts you ahead in a competitive market. Start today and see the
+                        impact
+                        firsthand.
+                    </h5>
+                    <button class="btn btn-lg btn-primary rounded">Join Us</button>
+                </div>
+                <div class="col p-5">
+                    <img src="{% static 'images/vec1.jpg' %}" alt="img" style="width: 100%;" class="rounded">
+                </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- ========== End HERO ========== -->
 
     <div style="background-color: #3A0AFF;">
@@ -146,94 +168,105 @@
     </div>
 
     <!-- ========== Start Get Started ========== -->
-    <div class="container p-5 bg-vc">
-        <div class="row">
-            <div class="col p-3">
-                <h3 class="large_h">Welcome To The Club</h3>
-                <p class="fw-light">Here's how you can get started!</p>
-                <div class="stepper d-flex flex-column mt-5 ml-2">
-                    <div class="d-flex mb-1">
-                        <div class="d-flex flex-column pr-4 align-items-center">
-                            <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">1</div>
-                            <div class="line h-100"></div>
+    <section id="get_started">
+        <div class="container p-5 bg-vc">
+            <div class="row">
+                <div class="col p-3">
+                    <h3 class="large_h">Welcome To The Club</h3>
+                    <p class="fw-light">Here's how you can get started!</p>
+                    <div class="stepper d-flex flex-column mt-5 ml-2">
+                        <div class="d-flex mb-1">
+                            <div class="d-flex flex-column pr-4 align-items-center">
+                                <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">1</div>
+                                <div class="line h-100"></div>
+                            </div>
+                            <div>
+                                <h5 class="text-dark">Create an Account</h5>
+                                <p class="lead text-muted pb-3">Start by creating your account <a href="#">here</a></p>
+                            </div>
                         </div>
-                        <div>
-                            <h5 class="text-dark">Create an Account</h5>
-                            <p class="lead text-muted pb-3">Start by creating your account <a href="#">here</a></p>
+                        <div class="d-flex mb-1">
+                            <div class="d-flex flex-column pr-4 align-items-center">
+                                <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">2</div>
+                                <div class="line h-100"></div>
+                            </div>
+                            <div>
+                                <h5 class="text-dark">Make Your First Deposit</h5>
+                                <p class="lead text-muted pb-3">Make an initial deposit in your account</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="d-flex mb-1">
-                        <div class="d-flex flex-column pr-4 align-items-center">
-                            <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">2</div>
-                            <div class="line h-100"></div>
-                        </div>
-                        <div>
-                            <h5 class="text-dark">Make Your First Deposit</h5>
-                            <p class="lead text-muted pb-3">Make an initial deposit in your account</p>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-1">
-                        <div class="d-flex flex-column pr-4 align-items-center">
-                            <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">3</div>
-                            <div class="line h-100 d-none"></div>
-                        </div>
-                        <div>
-                            <h5 class="text-dark">Sit Back, Relax and Earn</h5>
-                            <p class="lead text-muted pb-3">Our team of experts would make tough investiment decisions,
-                                so you can come back next time and spend your cash!</p>
+                        <div class="d-flex mb-1">
+                            <div class="d-flex flex-column pr-4 align-items-center">
+                                <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">3</div>
+                                <div class="line h-100 d-none"></div>
+                            </div>
+                            <div>
+                                <h5 class="text-dark">Sit Back, Relax and Earn</h5>
+                                <p class="lead text-muted pb-3">Our team of experts would make tough investiment
+                                    decisions,
+                                    so you can come back next time and spend your cash!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <img src="{% static 'images/vec2.png' %}" alt="" style="width: 100%;">
+                <div class="col">
+                    <img src="{% static 'images/vec2.png' %}" alt="" style="width: 100%;">
+                </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- ========== End Get Started ========== -->
 
     <!-- ========== Start Features ========== -->
-    <div class="features">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col">
-                    <!-- <img src="{% images/img9.url.jpeg" alt=""
-                        style="width: 100%; height: 100%;" class="rounded"> -->
+    <section id="features">
+        <div class="featuress">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col">
+                        <img src="{% static 'images/forex.webp' %}" alt=""
+                        style="width: 100%; height: 100%;" class="rounded">
+                    </div>
+                    <div class="col d-flex flex-column gap-3">
+                        <h1 class="large_h"><span class="text-primary">Features</span> We Have</h1>
+                        <div class="card p-3">
+                            <h5> Tailored Strategies for Maximum Growth</h5>
+                            <p class="small"> By understanding your unique financial goals and risk tolerance, we craft
+                                investment plans that are optimized for your specific
+                                needs. This ensures that your money works harder and smarter for you.</p>
+                        </div>
+
+                        <div class="card p-3">
+                            <h5> Consistent and Measurable Results</h5>
+                            <p class="small"> We track every step of your financial journey, providing consistent
+                                returns
+                                and measurable growth. Our focus on diversified portfolios and market insights ensures
+                                that
+                                your investments are resilient and constantly aligned with changing market dynamics.</p>
+                        </div>
+
+                        <div class="card p-3">
+                            <h5> Long-Term Wealth Building</h5>
+                            <p class="small"> Our approach prioritizes sustainable wealth creation. We don’t just aim
+                                for
+                                short-term gains—we help you build a financial foundation that secures your future, with
+                                a
+                                focus on steady and reliable growth over time.</p>
+                        </div>
+
+                        <div class="card p-3">
+                            <h5> Expert Guidance at Every Stage</h5>
+                            <p class="small"> Navigating the complexities of the financial world can be overwhelming.
+                                Our
+                                team of seasoned experts is with you every step of the way, offering insights and
+                                guidance
+                                to ensure that every decision you make is a step toward greater financial success.</p>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="col d-flex flex-column gap-3">
-                    <h1 class="large_h"><span class="text-primary">Features</span> We Have</h1>
-                    <div class="card p-3">
-                        <h5> Tailored Strategies for Maximum Growth</h5>
-                        <p class="small"> By understanding your unique financial goals and risk tolerance, we craft
-                            investment plans that are optimized for your specific
-                            needs. This ensures that your money works harder and smarter for you.</p>
-                    </div>
-
-                    <div class="card p-3">
-                        <h5> Consistent and Measurable Results</h5>
-                        <p class="small"> We track every step of your financial journey, providing consistent returns
-                            and measurable growth. Our focus on diversified portfolios and market insights ensures that
-                            your investments are resilient and constantly aligned with changing market dynamics.</p>
-                    </div>
-
-                    <div class="card p-3">
-                        <h5> Long-Term Wealth Building</h5>
-                        <p class="small"> Our approach prioritizes sustainable wealth creation. We don’t just aim for
-                            short-term gains—we help you build a financial foundation that secures your future, with a
-                            focus on steady and reliable growth over time.</p>
-                    </div>
-
-                    <div class="card p-3">
-                        <h5> Expert Guidance at Every Stage</h5>
-                        <p class="small"> Navigating the complexities of the financial world can be overwhelming. Our
-                            team of seasoned experts is with you every step of the way, offering insights and guidance
-                            to ensure that every decision you make is a step toward greater financial success.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </div>
+    </section>
     <!-- ========== End Features ========== -->
 
     <!-- ========== Start Pro Traders ========== -->
@@ -243,8 +276,7 @@
             Miss</h5>
         <div class="d-flex gap-3">
             <div class="card" style="width: 40rem;">
-                <img src="{% static 'images/img9.url' %}"
-                    class="card-img-top" alt="...">
+                <img src="{% static 'images/img1.jpeg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Mastering Risk Management: The Key to Long-Term Trading Success</h5>
                     <p class="card-text small fw-light">Every trader knows that risk management is essential, but few
@@ -256,8 +288,7 @@
             </div>
 
             <div class="card" style="width: 40rem;">
-                <img src="{% static 'images/img9.url' %}"
-                    class="card-img-top" alt="...">
+                <img src="{% static 'images/img1.jpeg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Algorithmic Trading: How to Automate Your Strategy for Consistent Profits
                     </h5>
@@ -269,8 +300,7 @@
             </div>
 
             <div class="card" style="width: 40rem;">
-                <img src="{% static 'images/img9.url' %}"
-                    class="card-img-top" alt="...">
+                <img src="{% static 'images/img1.jpeg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">How to Trade During Market Volatility: Strategies for Profit in Uncertain
                         Times</h5>
@@ -290,54 +320,57 @@
     <!-- ========== End Pro Traders ========== -->
 
     <!-- ========== Start Beginner Articles ========== -->
-    <div class="container px-5 bg-vc">
-        <h3 class="large_h">Articles For <strong class="text-primary">Begginers</strong></h3>
-        <h5 class="py-3">If You're <strong class="text-primary">Starting Out</strong> You Don't Want To
-            Miss This!</h5>
-        <div class="d-flex gap-3">
-            <div class="card" style="width: 40rem;">
-                <img src="{% static 'images/img9.url' %}"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Trading 101: A Complete Beginner’s Guide to the Stock Market</h5>
-                    <p class="card-text small fw-light">For anyone new to trading, the stock market can feel
-                        overwhelming. This article breaks down the basics—what stocks are, how the market works, and the
-                        key terms every trader should know. </p>
-                    <a href="#" class="">Read More</a>
+    <section id="articles">
+        <div class="container p-5 bg-vc">
+            <h3 class="large_h">Articles For <strong class="text-primary">Begginers</strong></h3>
+            <h5 class="py-3">If You're <strong class="text-primary">Starting Out</strong> You Don't Want To
+                Miss This!</h5>
+            <div class="d-flex gap-3">
+                <div class="card" style="width: 40rem;">
+                    <img src="{% static 'images/img9.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Trading 101: A Complete Beginner’s Guide to the Stock Market</h5>
+                        <p class="card-text small fw-light">For anyone new to trading, the stock market can feel
+                            overwhelming. This article breaks down the basics—what stocks are, how the market works, and
+                            the
+                            key terms every trader should know. </p>
+                        <a href="#" class="">Read More</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 40rem;">
+                    <img src="{% static 'images/img9.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">The Importance of a Trading Plan: How to Create Your Own</h5>
+                        <p class="card-text small fw-light">Every successful trader starts with a plan. In this article,
+                            we
+                            guide beginners on how to develop a personalized trading plan. It covers essential elements
+                            like
+                            setting realistic goals, defining risk tolerance, choosing a trading strategy, and tracking
+                            performance.</p>
+                        <a href="#" class="">Read More</a>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 40rem;">
+                    <img src="{% static 'images/img9.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Understanding Technical Analysis: How to Read Charts Like a Pro</h5>
+
+                        <p class="card-text small fw-light">Technical analysis is an essential skill for traders, and
+                            this
+                            article explains it in simple terms. It walks beginners through the most common chart types
+                            (line, bar, and candlestick), introduces key indicators like moving averages and RSI, and
+                            explains how to spot basic chart patterns. </p>
+                        <a href="#" class="">Read More</a>
+                    </div>
                 </div>
             </div>
-
-            <div class="card" style="width: 40rem;">
-                <img src="{% static 'images/img9.url' %}"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">The Importance of a Trading Plan: How to Create Your Own</h5>
-                    <p class="card-text small fw-light">Every successful trader starts with a plan. In this article, we
-                        guide beginners on how to develop a personalized trading plan. It covers essential elements like
-                        setting realistic goals, defining risk tolerance, choosing a trading strategy, and tracking
-                        performance.</p>
-                    <a href="#" class="">Read More</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 40rem;">
-                <img src="{% static 'images/img9.url' %}"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Understanding Technical Analysis: How to Read Charts Like a Pro</h5>
-
-                    <p class="card-text small fw-light">Technical analysis is an essential skill for traders, and this
-                        article explains it in simple terms. It walks beginners through the most common chart types
-                        (line, bar, and candlestick), introduces key indicators like moving averages and RSI, and
-                        explains how to spot basic chart patterns. </p>
-                    <a href="#" class="">Read More</a>
-                </div>
+            <div class="py-5">
+                <button class="btn btn-primary rounded">View More</button>
             </div>
         </div>
-        <div class="py-5">
-            <button class="btn btn-primary rounded">View More</button>
-        </div>
-    </div>
+    </section>
     <!-- ========== End Beginner Articles ========== -->
 
     <!-- ========== Start Testimonials ========== -->
@@ -474,12 +507,12 @@
     <!-- Footer  -->
     <footer>
         <div class="container-fluid bg-dark text-white">
-            <div class="container py-5">
+            <div class="container p-5">
                 <div class="row">
-                    <div class="col-12 col-md-6">
-                        <h4 class="text-primary">Cashnow Investiment</h4>
-                        <p class="">
-                            At Cashnow, we’re more than just investment advisors—we’re dedicated partners in
+                    <div class="col-12 col-md-6 px-3">
+                        <h5 class="text-primary py-2 fw-light">About</h5>
+                        <p class="fw-lighter" style="text-align: justify;">
+                            We are more than just investment advisors—we’re dedicated partners in
                             your journey to financial success. Our mission is simple: to empower individuals and
                             businesses by offering strategic, data-driven investment solutions that lead to real,
                             measurable growth.
@@ -488,10 +521,10 @@
                     <div class="col-12 col-sm-3">
                         <h5 class="text-primary py-2">Useful Links</h5>
                         <ul>
-                            <li><a class="text-decoration-none text-white" href="#">Get Started</a></li>
-                            <li><a class="text-decoration-none text-white" href="#contact">Contact Us</a></li>
-                            <li><a class="text-decoration-none text-white" href="#contact">Learn</a></li>
-                            <li><a class="text-decoration-none text-white" href="#contact">Testimonials</a></li>
+                            <li><a class="text-decoration-none text-white" href="#get_started">Get Started</a></li>
+                            <li><a class="text-decoration-none text-white" href="#about">About Us</a></li>
+                            <li><a class="text-decoration-none text-white" href="#articles">Blog & Articles</a></li>
+                            <li><a class="text-decoration-none text-white" href="#testimonials">Testimonials</a></li>
                         </ul>
                     </div>
                     <div class="col-12 col-sm-3">
