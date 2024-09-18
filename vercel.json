@@ -1,31 +1,27 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "cashnow/wsgi.py",
-            "use": "@vercel/python",
-            "config": {
-                "maxLambdaSize": "15mb",
-                "runtime": "python3.9"
-            }
-        },
-        {
-            "src": "build_files.sh",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "ui/staticfiles"
-            }
+      {
+        "src": "cashnow/wsgi.py",
+        "use": "@vercel/python",
+        "config": {"maxLambdaSize": "50mb", "runtime": "python3.x"}
+      },
+      {
+        "src": "build_files.sh",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "staticfiles"
         }
+      }
     ],
     "routes": [
-        {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "cashnow/wsgi.py"
-        }
-    ],
-    "outputDirectory": "ui/staticfiles"
+      {
+        "src": "/(.*)",
+        "dest": "cashnow/wsgi.py"
+      },
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      }
+    ]
 }
