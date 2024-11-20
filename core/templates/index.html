@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{% static 'images/logo-bg.png' %}">
-    <title>Cashnow Investiment</title>
+    <title>Your Investiment Partner</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -20,373 +20,281 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
+
 <body>
-    <!-- ========== Start Header ========== -->
-    <div class="header rounded header-bg text-light">
-        <!-- nav  -->
-        <nav class="navbar navbar-expand-lg bg-light p-3 fixed-top shadow">
-            <div class="container-fluid">
-                <a class="navbar-brand px-md-5 text-primary fw-bold" id="brand" href="#">
-                    <img src="{% static 'images/logo-bg.png' %}" alt="" style="width: 60px;">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-md-flex justify-content-end w-100">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#get_started">Get Started</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#features">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#testimonials">Reviews</a>
-                        </li>
-                        {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'user_home'%}">My Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'signout'%}">Signout</a>
-                        </li>
-                        {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'signup_step1' %}">Join Us</a>
-                        </li>
-                        {% endif %}
-                    </ul>
+    <!-- Header  -->
+    <section id="header" class="investment-header">
+        <div class="d-flex justify-content-between px-5 p-3">
+            <img src="{% static 'images/logo-bg.png' %}" alt="" style="width: 80px;">
+
+            <!-- <button class="btn btn-dark">Get Started</button> -->
+        </div>
+        <!-- Header Content -->
+        <div class="container">
+
+            <div class="row align-items-center">
+                <!-- Left Content -->
+                <div class="col-md-6 text-white">
+                    <h1 class="display-4 fw-bold">
+                        Simple, Secure and Smart Investing
+                    </h1>
+                    <p class="lead my-4">
+                        Take the first step to secure your financial future. Let’s help you grow smarter and faster.
+                    </p>
+
+                    <!-- Email Form -->
+                    <form class="email-form">
+                        <input type="email" placeholder="Enter your email address" required />
+                        <button type="submit" class="bg-dark">Send Us an Email</button>
+                    </form>
+                </div>
+
+                <!-- Mockup Image -->
+                <div class="col-md-6 text-center">
+                    <div class="phone-mockup-head">
+                        <div class="phone-screen-head">
+                            <!-- <video autoplay muted loop class="responsive-video">
+                                <source src="{% static 'images/mc1.mp4' %}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video> -->
+                            <img src="{% static 'images/polish.jpeg' %}" alt="" class="responsive-image">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Figures Section -->
+            <div class="row text-center mt-5 figures">
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-dark text-white p-4 shadow-sm">
+                        <h3>1M+</h3>
+                        <p>Happy Investors</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-dark text-white p-4 shadow-sm">
+                        <h3>100+</h3>
+                        <p>Global Brands</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-dark text-white p-4 shadow-sm">
+                        <h3>150+</h3>
+                        <p>Countries Served</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card bg-dark text-white p-4 shadow-sm">
+                        <h3>10K+</h3>
+                        <p>Financial Experts</p>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
 
-        {% block content %}
+        <!-- Wavy SVG -->
+        <div class="wave-svg overflow-hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" shape-rendering="crispEdges"
+                text-rendering="optimizeLegibility">
+                <path fill="#ffffff" fill-opacity="1"
+                    d="M0,160L60,149.7C120,139,240,117,360,112C480,107,600,117,720,128C840,139,960,149,1080,144C1200,139,1320,117,1380,106.3L1440,96L1440,320L0,320Z">
+                </path>
+            </svg>
+        </div>
 
-        <!-- header content  -->
-        <div class="container py-5">
+
+    </section>
+
+
+
+    <!-- About  -->
+    <div class="container p-3">
+        <div class="row d-flex flex-column-reverse flex-md-row">
+            <div class="col p-5">
+                <h5 class="mb-3 fs-4">Who Are We ?</h5>
+                <p style="text-align: justify;">
+                    We are a team of experienced investors, financial experts, and tech innovators dedicated to helping
+                    you achieve your financial goals. We believe that smart investing should be accessible to everyone,
+                    regardless of experience or background. Our mission is to make wealth-building simple, secure, and
+                    hassle-free by managing your investments in a diverse range of assets—stocks, real estate,
+                    cryptocurrencies, and more—on your behalf.
+
+                    With a focus on transparency, security, and growth, we are committed to helping you build a brighter
+                    financial future.
+                </p>
+                <button class="btn btn-dark btn-lg rounded">Get Started</button>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="video-container">
+                    <video autoplay muted loop class="responsive-video">
+                        <source src="{% static 'images/mockup1.mp4' %}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values -->
+    <section>
+        <div class="container p-md-5" id="explore">
             <div class="row">
-                <div class="col-md-6 mt-5">
-                    <div class="p-4 p-md-5 rounded" style="background-color: rgba(0, 0, 0, 0.5);">
-                        <h1 class="fw-bold text-white">
-                            Invest Your Money With <span class="text-warning">Higher Returns</span>
-                        </h1>
+                <div class="d-flex gap-5 flex-wrap flex-md-no-wrap justify-content-center">
+                    <div class="card shadow-sm border-none p-2 mb-3" style="width: 18rem;">
+                        <div class="p-3">
 
-                        <h5 class="text-light mt-3">
-                            Low fees, diversified portfolios, and cutting-edge tools to make investing simple and
-                            effective for you. Secure your financial future with confidence.
-                        </h5>
-
-                        <!-- Key Highlights -->
-                        <div class="mt-4 text-light">
-                            <ul class="list-unstyled">
-                                <li><i class="bi bi-arrow-up-right-circle text-success"></i> Maximize Your Returns</li>
-                                <li><i class="bi bi-shield-lock-fill text-success"></i> Secure & Transparent Platform
-                                </li>
-                                <li><i class="bi bi-bar-chart-fill text-success"></i> Real-Time Market Insights</li>
-                            </ul>
                         </div>
-
-                        <!-- social links  -->
-                        <div class="mt-4">
-                            <p class="py-2 fw-lighter">Connect With Us</p>
-                            <div class="d-flex gap-3">
-                                <a href="https://facebook.com" class="me-3" target="_blank">
-                                    <i class="fab fa-facebook fa-2x"></i>
-                                </a>
-                                <a href="https://twitter.com" class="me-3" target="_blank">
-                                    <i class="fab fa-twitter fa-2x"></i>
-                                </a>
-                                <a href="https://linkedin.com" class="me-3" target="_blank">
-                                    <i class="fab fa-linkedin fa-2x"></i>
-                                </a>
-                                <a href="https://instagram.com" target="_blank">
-                                    <i class="fab fa-instagram fa-2x"></i>
-                                </a>
-                            </div>
+                        <div class="card-body">
+                            <h4>Expert Investment Strategies</h4>
+                            <p class="card-text">
+                                We work with a team of experienced investors who focus on diversifying your portfolio
+                                for optimal growth.
+                            </p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- ========== End Header ========== -->
 
-    <!-- ========== Start HERO ========== -->
-    <section id="about">
-        <div class="bg-vc container">
-            <div class="row px-3 py-5 flex-column-reverse flex-md-row">
-                <div class="col col-12 col-md-6 p-3">
-                    <h2 class="fw-bold">Meet Our Company, Start Your <span class="text-primary">Success Journey</span>
-                        Today
-                    </h2>
-                    <p class="py-3 fw-light"> <strong>"</strong>
-                        A journey of a thousand miles, starts today!"
-                    </p>
-                    <p class="py-2" style="text-align: justify;">
-                        We are dedicated to your success. Unlock financial growth, implement proven strategies, and
-                        leverage
-                        innovative solutions designed to
-                        transform your vision into reality. With expert guidance and a trusted team, experience a
-                        journey
-                        toward long-term success that puts you ahead in a competitive market. Start today and see the
-                        impact
-                        firsthand.
-                    </p>
-                    <a class="btn btn-lg btn-primary rounded" href="{% url 'signup_step1' %}">Join Us</a>
-                </div>
-                <div class="col p-5">
-                    <img src="{% static 'images/vec1.jpg' %}" alt="img" style="width: 100%;" class="rounded">
+                    <div class="card shadow-sm border-none p-2 mb-3" style="width: 18rem;">
+                        <div class="p-3">
+
+                        </div>
+                        <div class="card-body">
+                            <h4>Flexibility and Control</h4>
+                            <p class="card-text">
+                                You can deposit, withdraw, or track your investments at any time with our easy-to-use
+                                platform.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="card shadow-sm border-none p-2 mb-3" style="width: 18rem;">
+                        <div class="p-3">
+
+                        </div>
+                        <div class="card-body">
+                            <h4>No Hidden Fees</h4>
+                            <p class="card-text">
+                                We believe in transparency—no surprise fees or hidden charges.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ========== End HERO ========== -->
 
-    <div style="background-color: #3A0AFF;">
-        <div class="container">
-            <div class="row p-5 flex-column-reverse flex-md-row">
-                <div class="col d-md-flex flex-column justify-content-center align-items-center text-white">
-                    <h1 class="large_h">Build a Network You Can Rely On</h1>
-                    <p>
-                        It's time time to secure your financial future. With our investment
-                        services, you'll gain access to expert insights, diversified portfolios, and proven strategies
-                        tailored
-                        to
-                        your goals. Achieve consistent growth with personalized guidance and a platform designed for
-                        success.
-                        Start
-                        investing today and watch your financial network flourish, giving you the peace of mind and
-                        stability
-                        you
-                        deserve.</p>
-                </div>
-                <div class="col col-12 col-md-6 p-5 rounded">
-                    <img src="{% static 'images/polish.jpeg' %}" alt="" style="width: 100%; height: 100%;"
-                        class="rounded">
-                </div>
+    <!-- How to get started  -->
+    <section style="background: linear-gradient(135deg, #0d6efd, #6610f2);" class="p-md-5">
+        <div class="container p-5 text-center">
+            <div class="d-flex flex-column flex-md-row justify-content-center">
+                <img src="{% static 'images/logo-bg.png' %}" alt="" style="width: 100px;" class="m-auto m-sm-0">
+                <h1 class="text-white text-center mb-4 display-4">Get Started In Three Simple Steps</h1>
             </div>
-        </div>
-    </div>
 
-    <!-- ========== Start Get Started ========== -->
-    <section id="get_started">
-        <div class="container p-5 bg-vc">
-            <div class="row flex-column-reverse flex-md-row">
-                <div class="col col-12 col-md-6 p-3">
-                    <h3 class="large_h">Welcome To The Club</h3>
-                    <p class="fw-light">Here's how you can get started!</p>
-                    <div class="stepper d-flex flex-column mt-5 ml-2">
-                        <div class="d-flex mb-1">
-                            <div class="d-flex flex-column pr-4 align-items-center">
-                                <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">1</div>
-                                <div class="line h-100"></div>
-                            </div>
-                            <div>
-                                <h5 class="text-dark">Create an Account</h5>
-                                <p class="lead text-muted pb-3">Start by creating your account <a
-                                        href="{% url 'signup_step1' %}">here</a></p>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-1">
-                            <div class="d-flex flex-column pr-4 align-items-center">
-                                <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">2</div>
-                                <div class="line h-100"></div>
-                            </div>
-                            <div>
-                                <h5 class="text-dark">Make Your First Deposit</h5>
-                                <p class="lead text-muted pb-3">Make an initial deposit in your account</p>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-1">
-                            <div class="d-flex flex-column pr-4 align-items-center">
-                                <div class="rounded-circle py-2 px-3 bg-primary text-white mb-1">3</div>
-                                <div class="line h-100 d-none"></div>
-                            </div>
-                            <div>
-                                <h5 class="text-dark">Sit Back, Relax and Earn</h5>
-                                <p class="lead text-muted pb-3">Our team of experts would make tough investiment
-                                    decisions,
-                                    so you can come back next time and spend your cash!</p>
-                            </div>
-                        </div>
+            <div class="text-center text-white m-auto w-md-75 p-3">
+                <p>Getting started is simple! First, create your account set up your personalized
+                    dashboard. Then, securely deposit funds using your preferred payment method. Once your money is in,
+                    our expert team invests on your behalf in a range of diverse assets. Sit back and watch your
+                    portfolio grow—whenever you're ready, you can easily withdraw your earnings.</p>
+            </div>
+            <div class="row text-center">
+                <!-- Step 1 -->
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <i class="bi bi-check-circle fs-1 text-primary mb-3"></i> <!-- Bootstrap Icons -->
+                        <h3>Sign Up</h3>
+                        <p>Create an account to start using our platform. It's quick and easy.</p>
+                        <button class="btn btn-lg rounded btn-dark">Sign Up Now</button>
                     </div>
                 </div>
-                <div class="col">
-                    <img src="{% static 'images/vec2.png' %}" alt="" style="width: 100%;">
+                <!-- Step 2 -->
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <i class="bi bi-credit-card fs-1 text-primary mb-3"></i> <!-- Bootstrap Icons -->
+                        <h3>Fund Your Account</h3>
+                        <p>Deposit funds securely into your account to begin trading.</p>
+                        <button class="btn btn-lg rounded btn-dark">Fund Account</button>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <i class="bi bi-bar-chart-line fs-1 text-primary mb-3"></i> <!-- Bootstrap Icons -->
+                        <h3>Earn & Withdraw</h3>
+                        <p>Easily withdraw your earnings any time you're ready.</p>
+                        <button class="btn btn-lg rounded btn-dark">Withdraw Funds</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ========== End Get Started ========== -->
 
-    <!-- ========== Start Features ========== -->
-    <section id="features">
-        <div class="featuress">
-            <div class="container p-3">
-                <div class="row flex-column flex-md-row">
-                    <div class="col">
-                        <img src="{% static 'images/forex.webp' %}" alt="" style="width: 100%; height: 100%;"
-                            class="rounded">
+    <!-- Trusted By  -->
+    <!-- <section>
+        <div class="container p-5 my-5">
+            <h2 class="display-4 text-center p-2">The Brands You Trust, Trusts Us!</h2>
+            <br>
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-5">
+                <div class="col p-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
                     </div>
-                    <div class="col d-flex flex-column gap-3">
-                        <h1 class="large_h py-2"><span class="text-primary">Features</span> We Have</h1>
-                        <div class="card p-3">
-                            <h5> Tailored Strategies for Maximum Growth</h5>
-                            <p class="small"> By understanding your unique financial goals and risk tolerance, we craft
-                                investment plans that are optimized for your specific
-                                needs. This ensures that your money works harder and smarter for you.</p>
-                        </div>
-
-                        <div class="card p-3">
-                            <h5> Consistent and Measurable Results</h5>
-                            <p class="small"> We track every step of your financial journey, providing consistent
-                                returns
-                                and measurable growth. Our focus on diversified portfolios and market insights ensures
-                                that
-                                your investments are resilient and constantly aligned with changing market dynamics.</p>
-                        </div>
-
-                        <div class="card p-3">
-                            <h5> Long-Term Wealth Building</h5>
-                            <p class="small"> Our approach prioritizes sustainable wealth creation. We don’t just aim
-                                for
-                                short-term gains—we help you build a financial foundation that secures your future, with
-                                a
-                                focus on steady and reliable growth over time.</p>
-                        </div>
-
-                        <div class="card p-3">
-                            <h5> Expert Guidance at Every Stage</h5>
-                            <p class="small"> Navigating the complexities of the financial world can be overwhelming.
-                                Our
-                                team of seasoned experts is with you every step of the way, offering insights and
-                                guidance
-                                to ensure that every decision you make is a step toward greater financial success.</p>
-                        </div>
+                </div>
+                <div class="col p-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
                     </div>
-
+                </div>
+                <div class="col p-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- ========== End Features ========== -->
+    </section> -->
 
-    <!-- ========== Start Pro Traders ========== -->
-    <div class="container p-5 bg-vc">
-        <h3 class="large_h">Articles For <strong class="text-primary">Pro Traders</strong></h3>
-        <h5 class="py-3">We Offer You <strong class="text-primary">Financial Lessons</strong> You Won't Want To
-            Miss</h5>
-        <div class="d-flex flex-column flex-md-row gap-3">
-            <div class="card" style="width: 20rem;">
-                <img src="{% static 'images/img1.jpeg' %}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Mastering Risk Management: The Key to Long-Term Trading Success</h5>
-                    <p class="card-text small fw-light">Every trader knows that risk management is essential, but few
-                        truly master it.
-                        This article dives deep into advanced risk management techniques, including position sizing,
-                        stop-loss strategies, and portfolio diversification. </p>
-                    <a href="#" class="">Read More</a>
-                </div>
-            </div>
 
-            <div class="card" style="width: 20rem;">
-                <img src="{% static 'images/img1.jpeg' %}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Algorithmic Trading: How to Automate Your Strategy for Consistent Profits
-                    </h5>
-                    <p class="card-text small fw-light">With the rise of algorithmic trading, more traders are exploring
-                        ways to
-                        automate their strategies for efficiency and consistency. </p>
-                    <a href="#" class="">Read More</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 20rem;">
-                <img src="{% static 'images/img1.jpeg' %}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">How to Trade During Market Volatility: Strategies for Profit in Uncertain
-                        Times</h5>
-
-                    <p class="card-text small fw-light">In this article, we explore advanced strategies for capitalizing
-                        on volatile markets, including
-                        options trading, hedging techniques, and utilizing technical indicators like the VIX (Volatility
-                        Index).</p>
-                    <a href="#" class="">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="py-5">
-            <button class="btn btn-primary rounded" style="border-radius: 50px;">View All</button>
-        </div>
-    </div>
-    <!-- ========== End Pro Traders ========== -->
-
-    <!-- ========== Start Beginner Articles ========== -->
-    <section id="articles">
-        <div class="container p-5 bg-vc">
-            <h3 class="large_h">Articles For <strong class="text-primary">Begginers</strong></h3>
-            <h5 class="py-3">If You're <strong class="text-primary">Starting Out</strong> You Don't Want To
-                Miss This!</h5>
-            <div class="d-flex flex-column flex-md-row gap-3">
-                <div class="card" style="width: 20rem;">
-                    <img src="{% static 'images/img9.jpeg' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Trading 101: A Complete Beginner’s Guide to the Stock Market</h5>
-                        <p class="card-text small fw-light">For anyone new to trading, the stock market can feel
-                            overwhelming. This article breaks down the basics—what stocks are, how the market works, and
-                            the
-                            key terms every trader should know. </p>
-                        <a href="#" class="">Read More</a>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 20rem;">
-                    <img src="{% static 'images/img9.jpeg' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">The Importance of a Trading Plan: How to Create Your Own</h5>
-                        <p class="card-text small fw-light">Every successful trader starts with a plan. In this article,
-                            we
-                            guide beginners on how to develop a personalized trading plan. It covers essential elements
-                            like
-                            setting realistic goals, defining risk tolerance, choosing a trading strategy, and tracking
-                            performance.</p>
-                        <a href="#" class="">Read More</a>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 20rem;">
-                    <img src="{% static 'images/img9.jpeg' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Understanding Technical Analysis: How to Read Charts Like a Pro</h5>
-
-                        <p class="card-text small fw-light">Technical analysis is an essential skill for traders, and
-                            this
-                            article explains it in simple terms. It walks beginners through the most common chart types
-                            (line, bar, and candlestick), introduces key indicators like moving averages and RSI, and
-                            explains how to spot basic chart patterns. </p>
-                        <a href="#" class="">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="py-5">
-                <button class="btn btn-primary rounded">View All</button>
-            </div>
-        </div>
-    </section>
-    <!-- ========== End Beginner Articles ========== -->
-
-    <!-- ========== Start Testimonials ========== -->
-    <section id="testimonials" class="bg-vc">
-        <div class="container">
+    <!-- Testimonials  -->
+    <section id="testimonials">
+        <div class="container p-5 m-md-5">
             <div class="accordion d-flex justify-content-center align-items-center" id="accordionExample">
                 <div class="row">
                     <div class="col-md-6">
@@ -437,7 +345,7 @@
                             </ul>
                         </div>
                     </div>
-
+    
                     <div class="col-md-6">
                         <div class="p-3 testimonials-margin">
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
@@ -449,7 +357,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-
+    
                                     <p>Before working with this team, I felt completely lost when it came to investing.
                                         I had some savings but no real strategy or understanding of how to grow my
                                         wealth. After sitting down with their advisors, they really took the time to
@@ -461,7 +369,7 @@
                                         my long-term goals thanks to their guidance!</p>
                                 </div>
                             </div>
-
+    
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
@@ -473,7 +381,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-
+    
                                     <p>I’ve worked with other financial advisors before, but none compared to the
                                         level of service I’ve received here. They don’t just talk numbers; they educate
                                         you on the 'why' behind every decision. After only a few months, I was already
@@ -485,7 +393,7 @@
                                         make me feel like I’m in control of my financial destiny.</p>
                                 </div>
                             </div>
-
+    
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                 data-parent="#accordionExample">
                                 <div class="card-body">
@@ -496,7 +404,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-
+    
                                     <p> When I first approached this company, I was unsure about how to manage my
                                         investments. I had heard horror stories about people losing money, and I didn’t
                                         want to make the same mistakes. After our initial consultation, I felt a huge
@@ -513,96 +421,201 @@
             </div>
         </div>
     </section>
-    <!-- ========== End Testimonials ========== -->
-    {% endblock %}
-    <!-- Footer  -->
-    <footer>
-        <div class="container-fluid bg-dark text-white">
-            <div class="container p-5">
-                <div class="row">
-                    <div class="col-12 col-md-6 px-3">
-                        <h5 class="text-primary py-2 fw-light">About</h5>
-                        <p class="fw-lighter" style="text-align: justify;">
-                            We are more than just investment advisors—we’re dedicated partners in
-                            your journey to financial success. Our mission is simple: to empower individuals and
-                            businesses by offering strategic, data-driven investment solutions that lead to real,
-                            measurable growth.
-                        </p>
-                    </div>
-                    <div class="col-12 col-sm-3">
-                        <h5 class="text-primary py-2">Useful Links</h5>
-                        <ul>
-                            <li><a class="text-decoration-none text-white" href="#get_started">Get Started</a></li>
-                            <li><a class="text-decoration-none text-white" href="#about">About Us</a></li>
-                            <li><a class="text-decoration-none text-white" href="#articles">Blog & Articles</a></li>
-                            <li><a class="text-decoration-none text-white" href="#testimonials">Testimonials</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-sm-3">
-                        <h5 class="text-primary py-2">Security</h5>
-                        <ul>
-                            <li><a class="text-decoration-none text-white" href="#">Developers</a></li>
-                            <li><a class="text-decoration-none text-white" href="#">Privacy Policy</a></li>
-                            <li><a class="text-decoration-none text-white" href="#">User Agreements</a></li>
-                            <li><a class="text-decoration-none text-white" href="#">Terms of Service</a></li>
-                        </ul>
+
+    
+    <!-- CONTACT US SECTION  -->
+    <section id="contact">
+        <div class="container p-5">
+            <div class="row gy-3 gy-md-4 gy-lg-0">
+                <div class="col-12 col-lg-6">
+                    <!-- <img src="{% static 'images/img.jpg!sw800" alt="" style="width: 100%; height: 100%;" class="rounded"> -->
+
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <video autoplay muted loop class="responsive-video">
+                                <source src="{% static 'images/mc1.mp4' %}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
                     </div>
                 </div>
 
-                <div class="p-5 text-center d-flex justify-content-center align-items-center">
-                    <div class="d-flex flex-wrap py-4">
-                        <div>
-                            <h4>Find Us On Social Media</h4>
-                            <div class="d-flex gap-3 py-3">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="blue"
-                                    class="bi bi-facebook" viewBox="0 0 16 16">
-                                    <path
-                                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-                                </svg><br>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="black"
-                                    class="bi bi-twitter-x" viewBox="0 0 16 16">
-                                    <path
-                                        d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-                                </svg><br>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red"
-                                    class="bi bi-instagram" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                                </svg><br>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                                    class="bi bi-discord" viewBox="0 0 16 16">
-                                    <path
-                                        d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612" />
-                                </svg><br>
-
+                <div class="col-12 col-lg-6 bsb-overlay background-position-center background-size-cover bg-contact">
+                    <div class="row align-items-lg-center justify-content-center h-100">
+                        <div class="col-11 col-xl-10">
+                            <div class="contact-info-wrapper py-4 py-xl-5">
+                                <h5 class="mb-3 fs-4">Get in touch</h5>
+                                <p class="lead fs-4 opacity-75 mb-4 mb-xxl-5">We're
+                                    always on
+                                    the lookout to work with new clients. If you're interested in
+                                    working with us, please get in touch in one of the following
+                                    ways.
+                                </p>
+                                <div class="d-flex mb-4 mb-xxl-5">
+                                    <div class="me-4 text-primary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#6610f2"
+                                            class="bi bi-geo" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-3">Address</h4>
+                                        <address class="mb-0 opacity-75">P.o. Box
+                                            81243-80100, GPO Mombasa. Ngumu House 2nd Floor, Haile
+                                            Salasie Avenue,</address>
+                                    </div>
+                                </div>
+                                <div class="row mb-4 mb-xxl-5">
+                                    <div class="col-12 col-xxl-6">
+                                        <div class="d-flex mb-4 mb-xxl-0">
+                                            <div class="me-4 text-primary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    fill="#6610f2" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-3">Phone</h4>
+                                                <p class="mb-0">
+                                                    <a class="link-dark link-opacity-75 link-opacity-100-hover text-decoration-none"
+                                                        href="tel:+15057922430">+254 717 950959</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-xxl-6">
+                                        <div class="d-flex mb-0">
+                                            <div class="me-4 text-primary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                    fill="#6610f2" class="bi bi-envelope-at" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z" />
+                                                    <path
+                                                        d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-3">E-Mail</h4>
+                                                <p class="mb-0">
+                                                    <a class="link-dark link-opacity-75 link-opacity-100-hover text-decoration-none"
+                                                        href="mailto:demo@yourdomain.com">info@cashnow.com</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <h4 class="p-5"> Or </h4>
-                        <div id="callback">
-                            <h5>Get an Instant Callback</h5>
-                            <form action="" class="d-flex flex-column gap-1">
-                                <input type="text" class="form-control" placeholder="Enter Phone No">
-                                <button class="btn btn-outline-primary my-2">Get Callback</button>
-                            </form>
-                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="text-md-center">
-                    <h3 class="fw-lighter text-primary small">@2024 - Cashnow.</h3>
+    <!-- Footer  -->
+    <section>
+        <footer class="bg-light text-dark pt-5 pb-3">
+            <div class="container">
+                <!-- Top Row -->
+                <div class="row text-center text-md-start align-items-center mb-4 px-md-5">
+                    <!-- Payment Icons -->
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <h5 class="">WE ACCEPT</h5>
+                        <div class="d-flex justify-content-center justify-content-md-start align-items-center gap-3">
+                            <img src="{% static 'images/visa.png' %}" alt="Visa" style="width: 40px;" class="m-2">
+                            <img src="{% static 'images/master.png' %}" alt="MasterCard" style="width: 40px;" class="m-2">
+                            <img src="{% static 'images/skrill.png' %}" alt="Skrill" style="width: 40px;" class="m-2">
+                            <img src="{% static 'images/paypal.png' %}" alt="Neteller" style="width: 40px;" class="m-2">
+                        </div>
+                    </div>
+                    <!-- Social Media -->
+                    <div class="col-12 col-md-4 mb-3 mb-md-0">
+                        <h5 class="">CONNECT WITH US</h6>
+                            <div class="d-flex justify-content-center justify-content-md-start align-items-center gap-3">
+                                <a href="#"><img src="{% static 'images/fb.png' %}" alt="" style="width: 40px;" class="m-2"></a>
+                                <a href="#"><img src="{% static 'images/ig.avif' %}" alt="" style="width: 40px;" class="m-2"></a>
+                                <a href="#"><img src="{% static 'images/X.png' %}" alt="" style="width: 40px;" class="m-2"></a>
+                                <a href="#"><img src="{% static 'images/yt.png' %}" alt="" style="width: 40px;" class="m-2"></a>
+                            </div>
+                    </div>
+                    <!-- App Download -->
+                    <div class="col-12 col-md-4">
+                        <h5 class="">WE'RE AVAILABLE ON</h6>
+                            <div
+                                class="d-flex justify-content-center justify-content-md-start align-items-center gap-3">
+                                <img src="{% static 'images/playstore.png' %}" alt="App Store" style="width: 100px;">
+                                <img src="{% static 'images/appstore.png' %}" alt="Google Play" style="width: 100px;">
+                            </div>
+                    </div>
+                </div>
+                <!-- Links Row -->
+                <div class="row text-center text-md-start mb-4 p-5">
+                    <!-- Tell Me More -->
+                    <div class="col-12 col-md-3 mb-3 mb-md-0">
+                        <h5 class="">Quick Links</h6>
+                            <ul class="list-unstyled">
+                                <li><a class="text-decoration-none text-dark" href="#contact">About Us</a></li>
+                                <li><a class="text-decoration-none text-dark" href="#">Get Started</a></li>
+                                <li><a class="text-decoration-none text-dark" href="">Learn</a></li>
+                                <li><a class="text-decoration-none text-dark" href="#testimonials">Testimonials</a></li>
+                            </ul>
+                    </div>
+                    <!-- I Would Like To -->
+                    <div class="col-12 col-md-3 mb-3 mb-md-0">
+                        <h6 class="fw-bold">Security & Policy</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-dark text-decoration-none">Disclosures and
+                                    Risk Warning</a></li>
+                            <li><a href="#" class="text-dark text-decoration-none">Customer
+                                    Agreement</a></li>
+                            <li><a href="#" class="text-dark text-decoration-none">Partnerships</a>
+                            </li>
+                            <li><a href="#" class="text-dark text-decoration-none">Affiliates</a>
+                            </li>
+                            <li><a href="#" class="text-dark text-decoration-none">Investor
+                                    Relations</a></li>
+                            <li><a href="#" class="text-dark text-decoration-none">Press
+                                    Releases</a></li>
+                        </ul>
+                    </div>
+                    <!-- I Would Like to Learn About -->
+                    <div class="col-12 col-sm-3">
+                        <h5 class="text-color">Newsletter</h5>
+                        <p class="small">Kindly, subscribe to our weekly Newsletter so that you can get all
+                            the
+                            updates in your email every week.</p>
+                        <form action="" method="post">
+                            <div class="d-flex flex-column">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Enter Email Address" class="form-control mb-3">
+                                </div>
+                                <input type="submit" class="btn btn-sm rounded btn-dark" value="Subscribe">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Help Section -->
+                    <div class="col-12 col-md-3">
+                        <h6 class="fw-bold">Need help? <a href="#" class="text-primary">Contact us</a></h6>
+                    </div>
+                </div>
+                <!-- Bottom Row -->
+                <div class="border-top pt-3 text-center d-flex flex-column flex-sm-row gap-md-5 justify-content-center">
+                    <p class="fw-light small text-color">© 2017 - 2024 CashNow Ltd. INC. All Rights Reserved </p>
+                    <p class="small fw-light text-dark text-decoration-none">Security Policy</p>
+                    <p class="small fw-light text-dark text-decoration-none">Developers</p>
+                    <p class="small fw-light text-dark text-decoration-none">User Agreement & Policy</p>
+                    <p class="small fw-light text-dark text-decoration-none" href="{% url 'dashboard' %}">Portal</p>
                 </div>
             </div>
-    </footer>
-
+        </footer>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
