@@ -186,7 +186,7 @@
     </section>
 
     <!-- How to get started  -->
-    <section style="background: linear-gradient(135deg, #0d6efd, #6610f2);" class="p-md-5">
+    <section style="background: linear-gradient(135deg, #0d6efd, #6610f2);" class="p-md-5" id="get_started">
         <div class="container p-5 text-center">
             <div class="d-flex flex-column flex-md-row justify-content-center">
                 <img src="{% static 'images/logo-bg.png' %}" alt="" style="width: 100px;" class="m-auto m-sm-0">
@@ -206,7 +206,7 @@
                         <i class="bi bi-check-circle fs-1 text-primary mb-3"></i> <!-- Bootstrap Icons -->
                         <h3>Sign Up</h3>
                         <p>Create an account to start using our platform. It's quick and easy.</p>
-                        <button class="btn btn-lg rounded btn-dark">Sign Up Now</button>
+                        <a class="btn btn-lg rounded btn-dark" href="{% url 'signup_step1' %}">Sign Up Now</a>
                     </div>
                 </div>
                 <!-- Step 2 -->
@@ -215,7 +215,7 @@
                         <i class="bi bi-credit-card fs-1 text-primary mb-3"></i> <!-- Bootstrap Icons -->
                         <h3>Fund Your Account</h3>
                         <p>Deposit funds securely into your account to begin trading.</p>
-                        <button class="btn btn-lg rounded btn-dark">Fund Account</button>
+                        <a class="btn btn-lg rounded btn-dark" href="{% url 'deposit' %}">Fund Account</a>
                     </div>
                 </div>
                 <!-- Step 3 -->
@@ -224,7 +224,7 @@
                         <i class="bi bi-bar-chart-line fs-1 text-primary mb-3"></i> <!-- Bootstrap Icons -->
                         <h3>Earn & Withdraw</h3>
                         <p>Easily withdraw your earnings any time you're ready.</p>
-                        <button class="btn btn-lg rounded btn-dark">Withdraw Funds</button>
+                        <a class="btn btn-lg rounded btn-dark" href="{% url 'user_home' %}">Withdraw Funds</a>
                     </div>
                 </div>
             </div>
@@ -597,7 +597,7 @@
                     </div>
                     <!-- Help Section -->
                     <div class="col-12 col-md-3">
-                        <h6 class="fw-bold">Need help? <a href="#" class="text-primary">Contact us</a></h6>
+                        <h6 class="fw-bold">Need help? <a href="#contact" class="text-primary">Contact us</a></h6>
                     </div>
                 </div>
                 <!-- Bottom Row -->
